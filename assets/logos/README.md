@@ -103,6 +103,13 @@ This matters because the brand rules say to avoid pure black on Instagram so the
 The file here is left faithful to Figma rather than silently recolored, since Figma Section 3 is
 canonical. Fix the variant fill in Figma and re-export, and this note can go.
 
+## Still to resolve
+
+- `golfery-avatar-1080.png` is listed in `logo.exports_needed` in the tokens but has no identified
+  source node in Section 3. It is most likely a crop of 322:555 (Icon with cleanspace). Confirm
+  which node it should come from and it can be exported with the rest.
+- The black badge fill and the descriptor size mismatch, both described above.
+
 ## Until the files exist
 
 The site shows a dashed "Missing" box wherever a logo belongs. That is deliberate: the wordmark

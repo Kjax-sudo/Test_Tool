@@ -211,7 +211,7 @@
   // Markdown sections from the brand doc
   const secs = GolferyMD.sections(DOC);
   const find = (needle) => Object.keys(secs).find((k) => k.toLowerCase().includes(needle));
-  [["patterns", "patterns from golfery.com"], ["photo", "photo and video"], ["voice", "voice"], ["legal", "partner and legal"], ["refusals", "refusal list"], ["open", "open items"]].forEach(([id, needle]) => {
+  [["patterns", "patterns from golfery.com"], ["photo", "photo and video"], ["voice", "voice"], ["legal", "partner and legal"], ["refusals", "refusal list"]].forEach(([id, needle]) => {
     const k = find(needle); if (!k) return;
     $(id).innerHTML = GolferyMD.render(secs[k].replace(/^##\s+\d+[a-z]?\.\s+/, "## "));
   });
