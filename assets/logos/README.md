@@ -56,6 +56,36 @@ badge exports are not blocked on fixing it.
 Text on path: the Circle Icon set renders as outlined vectors on export, so no manual outlining
 step is needed.
 
+## Export provenance
+
+All 12 SVGs were exported from the nodes above via the Figma MCP connection, not by hand.
+
+Two things had to be cleaned off each raw export. Figma exports a component variant together
+with its parent Section chrome, so every file arrived with:
+
+1. An opaque `<rect fill="#F5F5F5">` covering the whole canvas, which would have put a light grey
+   box behind every logo. The spec calls for transparent, so it was removed.
+2. A stray `Section 3` frame border drawn as a `<path>` at coordinates far outside the viewBox
+   (for example `M-2213 -6587 ... H9668`), which was removed.
+
+Nothing else was touched. No path data was edited, redrawn, or re-coordinated, and there are no
+transforms in these files, so removing those two elements shifts nothing. Every remaining artwork
+path is byte-identical to the raw Figma export.
+
+If you re-export by hand from the Figma UI, select the variant and use "Export selection" rather
+than exporting the Section, or you will reintroduce both artifacts.
+
+## Known issue: the black badge is pure black
+
+`golfery-badge-black.svg` came out of Figma filled `#000000`, not Shade Black `#121113`. Its
+sibling variants are correct (`golfery-badge-green.svg` is `#345C2C`, `golfery-badge-flagpole.svg`
+is `#FEEFE5`), and the other three black marks are correctly `#121113`. So this is isolated to the
+`Circle Icon` set: variant `Color=Shade Black` (322:534) is mis-filled at the source.
+
+This matters because the brand rules say to avoid pure black on Instagram so the feed stays warm.
+The file here is left faithful to Figma rather than silently recolored, since Figma Section 3 is
+canonical. Fix the variant fill in Figma and re-export, and this note can go.
+
 ## Until the files exist
 
 The site shows a dashed "Missing" box wherever a logo belongs. That is deliberate: the wordmark
