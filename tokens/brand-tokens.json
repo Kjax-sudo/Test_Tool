@@ -1,7 +1,7 @@
 {
   "meta": {
     "brand": "The Golfery",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "updated": "2026-09-21",
     "status_key": {
       "confirmed": "Already in use on golfery.com or stated by founders",
@@ -14,6 +14,10 @@
       "fileKey": "5Tc4i7bgesaC5EvalUgcNQ",
       "page": "Brand and Logo Library (278:43)",
       "canonical_section": "Section 3 (322:1156). Everything outside Sections 3 and 4 is exploration and must not be used."
+    },
+    "web_source": {
+      "site": "golfery.com",
+      "note": "Square Online renders client-side, so an automated fetch returns only meta tags. Web patterns below come from the homepage build (11 custom blocks under the .glyh namespace). Verify against the live page."
     }
   },
   "facts": {
@@ -24,7 +28,7 @@
     "site": "golfery.com",
     "email": "hello@golfery.com",
     "address": "647 Irwin Street, San Rafael, CA 94901",
-    "descriptor": "Marin's first dedicated indoor golf simulator venue",
+    "descriptor": "Marin's social sports club",
     "do_not_hardcode": [
       "membership prices",
       "bay count",
@@ -49,18 +53,30 @@
         "Private bookable rooms",
         "Food & Beverage Station"
       ]
-    }
+    },
+    "descriptor_source": "golfery.com meta description, read 2026-09-21",
+    "descriptor_long": "Premium simulator bays, coworking, and curated events in San Rafael, CA",
+    "tagline": {
+      "text": "Where golf lives beyond the course",
+      "status": "proposed, confirm it is still the live homepage headline"
+    },
+    "logo_descriptor": "SIMULATOR LOUNGE / MARIN CALIFORNIA (logo lockup only, not for captions)"
   },
   "color": {
     "status": "confirmed",
     "palette": {
+      "white": {
+        "hex": "#FFFFFF",
+        "role": "Page and document background. Text and logo on footage, as on the golfery.com hero.",
+        "status": "proposed name, confirmed hex"
+      },
       "golfery_green": {
         "hex": "#345C2C",
         "role": "Primary. Backgrounds, headlines on light, logo."
       },
       "flagpole_cream": {
         "hex": "#FEEFE5",
-        "role": "Primary light. Backgrounds, text on green or black.",
+        "role": "Warm surface. Panels, cards and post backgrounds. Text on green or black.",
         "figma_name": "Brand/Flagpole White",
         "note": "Figma calls this Flagpole White. Same hex. Pick one name; this file uses flagpole_cream until told otherwise."
       },
@@ -74,10 +90,34 @@
       },
       "hazy_grey": {
         "hex": "#EDEAE4",
-        "role": "Secondary light background, cards, dividers."
+        "role": "Quiet surface. Secondary panels, dividers."
       }
     },
     "pairings_approved": [
+      {
+        "text": "golfery_green",
+        "bg": "white",
+        "contrast": 7.74,
+        "use": "any text size"
+      },
+      {
+        "text": "shade_black",
+        "bg": "white",
+        "contrast": 18.83,
+        "use": "any text size"
+      },
+      {
+        "text": "white",
+        "bg": "golfery_green",
+        "contrast": 7.74,
+        "use": "any text size"
+      },
+      {
+        "text": "white",
+        "bg": "shade_black",
+        "contrast": 18.83,
+        "use": "any text size, and the default over a footage scrim"
+      },
       {
         "text": "flagpole_cream",
         "bg": "golfery_green",
@@ -137,6 +177,12 @@
         "bg": "hazy_grey",
         "contrast": 3.48,
         "use": "large text and labels only, 56px and up"
+      },
+      {
+        "text": "accent_purple",
+        "bg": "white",
+        "contrast": 4.17,
+        "use": "large text and labels only, 56px and up"
       }
     ],
     "pairings_banned": [
@@ -144,7 +190,7 @@
         "a": "accent_purple",
         "b": "golfery_green",
         "contrast": 1.85,
-        "reason": "Unreadable"
+        "reason": "Unreadable. Note: the Practice Round page sets a purple line on a green block. Change that line to cream or white."
       },
       {
         "a": "golfery_green",
@@ -157,20 +203,36 @@
         "b": "hazy_grey",
         "contrast": 1.07,
         "reason": "No separation. Fine as adjacent surfaces, never as text on background."
+      },
+      {
+        "a": "flagpole_cream",
+        "b": "white",
+        "contrast": 1.12,
+        "reason": "No separation as text. Fine as a cream panel on the white page, with a hairline border."
+      },
+      {
+        "a": "hazy_grey",
+        "b": "white",
+        "contrast": 1.2,
+        "reason": "No separation as text. Fine as a grey panel on the white page."
       }
     ],
     "usage_ratio": {
       "status": "proposed",
-      "rule": "Per frame: about 60 percent green or cream, 30 percent the other, 10 percent or less purple. Black is for dark-mode variants and Reel caption bars."
+      "rule": "Instagram frame: about 60 percent green or cream, 30 percent the other, 10 percent or less purple. Black is for dark variants and Reel caption bars. White is text and logo on footage. Web and documents: white page, cream and grey panels, green blocks."
     },
     "on_photo_text": {
-      "status": "proposed",
-      "rule": "Text over photo or video uses flagpole_cream on a shade_black gradient scrim, 0 to 60 percent opacity, bottom up. Never place green or purple text directly on footage."
+      "status": "confirmed on golfery.com hero",
+      "rule": "Text over photo or video is white on a shade_black gradient scrim, 0 to 60 percent opacity, bottom up. Flagpole cream is the alternate. Never place green or purple text directly on footage."
     },
     "figma_variables_found": [
       "Brand/Flagpole White #FEEFE5",
       "Brand/Golfery Green #345C2C"
-    ]
+    ],
+    "surface_order": {
+      "status": "confirmed for web and documents",
+      "rule": "White is the page. Cream and grey sit on it as panels. Green and black are full-bleed blocks. Instagram frames still lead with green or cream so the feed stays warm; white is for text and logo on footage there."
+    }
   },
   "type": {
     "status": "confirmed",
@@ -179,11 +241,12 @@
         "family": "Playfair Display",
         "fallback": "Georgia, serif",
         "weights": [
-          400,
-          700
+          500,
+          600
         ],
         "italic": true,
-        "role": "Headlines"
+        "role": "Headlines. Italic for one closing phrase at most.",
+        "italic_weight": 500
       },
       "body": {
         "family": "Archivo",
@@ -191,6 +254,7 @@
         "weights": [
           400,
           500,
+          600,
           700
         ],
         "role": "Body, subheads, buttons"
@@ -214,19 +278,19 @@
         "family": "display",
         "size": 128,
         "line_height": 1.0,
-        "weight": 700
+        "weight": 600
       },
       "headline_l": {
         "family": "display",
         "size": 96,
         "line_height": 1.05,
-        "weight": 700
+        "weight": 600
       },
       "headline_m": {
         "family": "display",
         "size": 72,
         "line_height": 1.1,
-        "weight": 700
+        "weight": 600
       },
       "subhead": {
         "family": "body",
@@ -261,7 +325,8 @@
       "body_max_words_per_slide": 35,
       "families_per_frame": 3,
       "sizes_per_frame": 3
-    }
+    },
+    "source_note": "Weights match the golfery.com font load: Playfair Display 500, 600 and 500 italic; Archivo 400 to 700; IBM Plex Mono 400, 500."
   },
   "layout": {
     "status": "proposed",
@@ -374,11 +439,12 @@
       }
     ],
     "colorways_for_instagram": {
-      "on_green": "Flagpole White",
-      "on_black_or_footage": "Flagpole White",
-      "on_cream_or_grey": "Golfery Green (default) or Shade Black",
+      "on_green": "Flagpole White or White",
+      "on_black": "Flagpole White or White",
+      "on_footage": "White, matching the site hero. Flagpole White is the alternate.",
+      "on_white_cream_or_grey": "Golfery Green (default) or Shade Black",
       "purple": "Exists in Figma. Restrict to merch and one-off accents. Never on green.",
-      "pure_white_and_pure_black": "Exist in Figma. Avoid on Instagram; use Flagpole White and Shade Black so the feed stays warm."
+      "pure_black": "Exists in Figma. Use Shade Black instead."
     },
     "clearspace": {
       "source": "Figma Grid/Cleanspace frame 322:9",
@@ -394,13 +460,14 @@
       "path": "assets/logos",
       "format": "SVG plus PNG at 2x, transparent background",
       "files": [
-        "golfery-wordmark-{flagpole,green,black}.svg",
-        "golfery-wordmark-descriptor-{flagpole,green,black}.svg",
-        "golfery-symbol-{flagpole,green,black}.svg",
-        "golfery-badge-{flagpole,green,black}.svg",
+        "golfery-wordmark-{flagpole,green,black,white}.svg",
+        "golfery-wordmark-descriptor-{flagpole,green,black,white}.svg",
+        "golfery-symbol-{flagpole,green,black,white}.svg",
+        "golfery-badge-{flagpole,green,black,white}.svg",
         "golfery-avatar-1080.png"
       ],
-      "how": "In Figma, select each variant in Section 3, outline the text-on-path in the badge first, then Export. Use Cleanspace=false variants so templates control padding."
+      "how": "In Figma, select each variant in Section 3, outline the text-on-path in the badge first, then Export. Use Cleanspace=false variants so templates control padding.",
+      "white_shortcut": "No Figma trip needed: copy each green SVG and replace fill=\"#345C2C\" with fill=\"#FFFFFF\". README has the one-line command."
     },
     "rules": [
       "One mark per frame",
@@ -429,30 +496,34 @@
         "why": "AI concept renders. Mood reference only, never posted."
       },
       {
-        "what": "Placeholder web copy: 'Where precision meets passion...' and 'Beyond the Course'",
-        "why": "Off voice and references an outdoor course"
+        "what": "Placeholder web copy in the Figma mockups: 'Where precision meets passion. Experience golf at its finest...'",
+        "why": "Off voice and uses words on the avoid list. The headline 'Beyond the course' in those same mockups is fine; it became the live tagline."
       }
     ],
     "files": {
       "wordmark": {
         "flagpole": "assets/logos/golfery-wordmark-flagpole.svg",
         "green": "assets/logos/golfery-wordmark-green.svg",
-        "black": "assets/logos/golfery-wordmark-black.svg"
+        "black": "assets/logos/golfery-wordmark-black.svg",
+        "white": "assets/logos/golfery-wordmark-white.svg"
       },
       "wordmark_descriptor": {
         "flagpole": "assets/logos/golfery-wordmark-descriptor-flagpole.svg",
         "green": "assets/logos/golfery-wordmark-descriptor-green.svg",
-        "black": "assets/logos/golfery-wordmark-descriptor-black.svg"
+        "black": "assets/logos/golfery-wordmark-descriptor-black.svg",
+        "white": "assets/logos/golfery-wordmark-descriptor-white.svg"
       },
       "symbol": {
         "flagpole": "assets/logos/golfery-symbol-flagpole.svg",
         "green": "assets/logos/golfery-symbol-green.svg",
-        "black": "assets/logos/golfery-symbol-black.svg"
+        "black": "assets/logos/golfery-symbol-black.svg",
+        "white": "assets/logos/golfery-symbol-white.svg"
       },
       "badge": {
         "flagpole": "assets/logos/golfery-badge-flagpole.svg",
         "green": "assets/logos/golfery-badge-green.svg",
-        "black": "assets/logos/golfery-badge-black.svg"
+        "black": "assets/logos/golfery-badge-black.svg",
+        "white": "assets/logos/golfery-badge-white.svg"
       }
     }
   },
@@ -469,7 +540,8 @@
           "hero mark centered: wordmark with descriptor, or circle badge",
           "translucent CTA bar near bottom, Archivo uppercase, e.g. BOOK NOW"
         ],
-        "note": "Already designed. This is the house look for Stories: footage first, one mark, one CTA."
+        "note": "Already designed. This is the house look for Stories: footage first, one mark, one CTA.",
+        "text_color": "white"
       },
       {
         "id": "reel_cover",
@@ -479,7 +551,8 @@
           "label",
           "headline_l",
           "logo"
-        ]
+        ],
+        "text_color": "white"
       },
       {
         "id": "event_announce",
@@ -553,5 +626,57 @@
         ]
       }
     ]
+  },
+  "web_patterns": {
+    "status": "proposed, from the golfery.com homepage build. Verify against the live page.",
+    "patterns": [
+      {
+        "id": "eyebrow_dot",
+        "what": "Plex Mono eyebrow led by a small Golfery Green dot, a golf ball at address",
+        "carry_to_instagram": "Yes. Use the dot before labels on cream, grey and white frames."
+      },
+      {
+        "id": "italic_close",
+        "what": "Playfair headline with the closing phrase in 500 italic, as in 'Where golf lives beyond the course'",
+        "carry_to_instagram": "Yes, once per headline, closing phrase only."
+      },
+      {
+        "id": "hero_scrim",
+        "what": "Full-bleed photo, bottom-up black gradient scrim, white text on the left, subject on the right",
+        "carry_to_instagram": "Yes. This is the Reel cover and brand Story treatment."
+      },
+      {
+        "id": "button_pair",
+        "what": "Primary button filled cream, secondary glassy and translucent, both full width and stacked on mobile",
+        "carry_to_instagram": "Story CTA bar uses the glassy style."
+      },
+      {
+        "id": "proof_strip",
+        "what": "One-line row of short proof points in Plex Mono directly under the hero",
+        "carry_to_instagram": "Works as the last line of an event or promo frame."
+      },
+      {
+        "id": "scorecard",
+        "what": "Green block with Plex Mono rows laid out like a scorecard for offers, schedules and standings",
+        "carry_to_instagram": "Yes. League standings and promo terms."
+      },
+      {
+        "id": "split_section",
+        "what": "Photo on one side, eyebrow, headline, short body and one link on the other; sides alternate down the page",
+        "carry_to_instagram": "Member spotlight and carousel middle slides."
+      }
+    ],
+    "site_sections": [
+      "Hero and proof strip",
+      "Golf Better",
+      "The Bays",
+      "PuttView",
+      "Leagues",
+      "The Hang",
+      "Coworking",
+      "Lessons",
+      "Gallery"
+    ],
+    "site_section_use": "These nine sections are ready-made content pillars for the weekly plan."
   }
 }

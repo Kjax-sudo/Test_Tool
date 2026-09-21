@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site/site.css">
 </head>
 <body>
@@ -33,6 +33,7 @@
       <a class="nav__item" href="#pairings">Pairings</a>
       <a class="nav__item" href="#typography">Typography</a>
       <a class="nav__item" href="#logos">Logos</a>
+      <a class="nav__item" href="#patterns">Patterns from the site</a>
       <a class="nav__item" href="#layout">Canvas and safe zones</a>
 
       <p class="nav__group">Instagram</p>
@@ -54,8 +55,8 @@
 
     <header class="hero">
       <div class="hero__text">
-        <p class="eyebrow">647 Irwin Street, San Rafael</p>
-        <h1>The Golfery brand system</h1>
+        <p class="eyebrow eyebrow--dot" id="hero-eyebrow">Marin's social sports club</p>
+        <h1>The Golfery <em>brand system</em></h1>
         <p class="hero__lede">Everything needed to make an Instagram post that looks and sounds like us: the real colors, type, logo files, post templates, footage rules and voice. The page renders from the same two files Claude reads, so what you see here is what it builds with.</p>
         <dl class="hero__facts" id="hero-facts"></dl>
       </div>
@@ -70,7 +71,7 @@
     <section class="section" id="colors">
       <div class="section__head">
         <h2>Colors</h2>
-        <p class="note">Five colors. Green and cream carry the brand, purple is a highlighter. Click a swatch to copy its hex.</p>
+        <p class="note" id="color-note"></p>
       </div>
       <div class="swatches" id="swatches"></div>
       <p class="note" id="color-ratio"></p>
@@ -116,6 +117,8 @@
         </div>
       </div>
     </section>
+
+    <section class="section md" id="patterns"></section>
 
     <section class="section" id="layout">
       <div class="section__head">

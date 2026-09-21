@@ -36,6 +36,19 @@ cleanly in a template until they are reconciled in Figma. Worth fixing at the so
 | `golfery-symbol-green.svg` | 322:503 | Color=Golfery Green |
 | `golfery-symbol-black.svg` | 322:497 | Color=Shade Black |
 
+### White, added in 0.4.0
+
+White (`#FFFFFF`) became a palette color in 0.4.0: the page background on web, and the colorway
+for logo and text over footage on Instagram. These come from their own Figma variants rather than
+from recoloring the green files.
+
+| File | Node | Variant |
+|---|---|---|
+| `golfery-wordmark-white.svg` | 322:53 | Logo set, bg is=Dark, Color Logo=White, Cleanspace=false, Description=false |
+| `golfery-wordmark-descriptor-white.svg` | 322:57 | Logo set, bg is=Dark, Color Logo=White, Cleanspace=false, Description=true |
+| `golfery-symbol-white.svg` | 322:491 | Symbol set, Color=White |
+| `golfery-badge-white.svg` | 322:506 | Circle Icon set, Color=White |
+
 ### Badge, component set `Circle Icon` (322:505), 375x369
 
 | File | Node | Variant |

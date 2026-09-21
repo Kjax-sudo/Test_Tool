@@ -30,3 +30,24 @@ The page uses `fetch`, so open it through a server: `npx serve` or `python3 -m h
 ## Use from Cowork
 
 Clone the repo next to your content folders, or add it as a Cowork project folder. Install `skills/on-brand` as a skill. Claude reads the same files this page renders, so the page is always an accurate picture of what it will produce.
+
+## White logo files
+
+Already done. The four white marks were exported from their own Figma variants
+(`Color Logo=White` / `Color=White`), so they are real files, not recolored copies:
+
+```
+golfery-wordmark-white.svg            golfery-symbol-white.svg
+golfery-wordmark-descriptor-white.svg golfery-badge-white.svg
+```
+
+There is no need to generate them by recoloring the green files with `sed`. That approach also
+would not have been safe for the badge, whose ring uses `stroke` as well as `fill`.
+
+The page keeps a mask-tint fallback for any colorway whose file is missing, but with these four
+present it never fires. See `assets/logos/README.md` for the node ids.
+
+## Changelog
+
+- 0.4.0: White (#FFFFFF) added and set as the page background. Cream and grey become panels. Type weights aligned with golfery.com (Playfair 500/600, 500 italic). Patterns from the site added. Descriptor changed to "Marin's social sports club".
+- 0.3.0: First deploy.

@@ -1,6 +1,6 @@
 # The Golfery Brand System for Instagram
 
-Version 0.3.0, 2026-09-21
+Version 0.4.0, 2026-09-21
 
 Exact values live in `tokens/brand-tokens.json`. This file explains how to apply them. If the two disagree, the JSON wins.
 
@@ -10,7 +10,7 @@ Status tags: **[confirmed]** already in use, **[proposed]** Claude default await
 
 ## 1. Who we are in one paragraph [proposed]
 
-The Golfery is Marin's first dedicated indoor golf simulator venue: themed bays, an AR putting green, a self-pour tap wall, and a coworking lounge at 647 Irwin Street in San Rafael. Members come to play, work, and hang out. The feed should feel like the room does at 7pm on a league night: warm, social, a little competitive, rooted in golf tradition without the country club stiffness.
+The Golfery is Marin's social sports club: themed simulator bays, an AR putting green, a self-pour tap wall, and a coworking lounge at 647 Irwin Street in San Rafael. Members come to play, work, and hang out. The feed should feel like the room does at 7pm on a league night: warm, social, a little competitive, rooted in golf tradition without the country club stiffness.
 
 **Content goal:** every post should make a 25 to 45 year old in Marin think "I could see myself there this week."
 
@@ -22,18 +22,20 @@ The Golfery is Marin's first dedicated indoor golf simulator venue: themed bays,
 
 | Token | Hex | Job |
 |---|---|---|
+| White | #FFFFFF | Page and document background. Text and logo on footage. |
 | Golfery Green | #345C2C | Primary. Backgrounds, headlines on light. |
-| Flagpole Cream | #FEEFE5 | Primary light. Backgrounds, text on dark. |
+| Flagpole Cream | #FEEFE5 | Warm surface. Panels, cards, post backgrounds, text on dark. |
 | Accent Purple | #7A76AE | Accent. One element per frame. |
 | Shade Black | #121113 | Dark backgrounds, body text on light. |
-| Hazy Grey | #EDEAE4 | Secondary light, cards, dividers. |
+| Hazy Grey | #EDEAE4 | Quiet surface. Secondary panels, dividers. |
 
 **Rules**
 
-- Green and cream carry the brand. A frame should read as green or cream at thumbnail size.
-- Purple is a highlighter. Labels, a single underlined word, a date chip. Purple text on cream or grey only at 56px and up. [proposed]
-- Banned combinations (fail contrast): purple with green, green with black, cream text on grey.
-- Text over footage: cream on a black gradient scrim. Never green or purple directly on footage. [proposed]
+- On the web and in documents, white is the page. Cream and grey sit on it as panels, green and black run as full-bleed blocks. This matches golfery.com.
+- On Instagram, green and cream still carry the frame so the feed stays warm. A frame should read as green or cream at thumbnail size. White there is for text and logo on footage.
+- Purple is a highlighter. Labels, a single underlined word, a date chip. Purple text on white, cream or grey only at 56px and up. [proposed]
+- Banned combinations (fail contrast): purple with green, green with black, and cream, grey and white as text on each other. The Practice Round page currently sets a purple line on green; change it to cream or white.
+- Text over footage: white on a black gradient scrim, as on the site hero. Cream is the alternate. Never green or purple directly on footage. [confirmed]
 
 ---
 
@@ -41,7 +43,7 @@ The Golfery is Marin's first dedicated indoor golf simulator venue: themed bays,
 
 | Role | Family | Use |
 |---|---|---|
-| Display | Playfair Display | Headlines. Bold, occasional italic for one emphasized word. |
+| Display | Playfair Display | Headlines at 600. One closing phrase in 500 italic at most, as in "Where golf lives *beyond the course*". |
 | Body | Archivo | Subheads, body, details. |
 | Label | IBM Plex Mono | Uppercase eyebrows, dates, scores, promo codes, stats. |
 
@@ -72,10 +74,12 @@ The logo is a hand-lettered script wordmark with an underline swash that ends in
 
 **Colorways for Instagram**
 
-- On green, black, or footage: Flagpole White.
-- On cream or grey: Golfery Green by default, Shade Black as the alternate.
+- On footage: White, matching the site hero. Flagpole White is the alternate.
+- On green or black: Flagpole White or White.
+- On white, cream or grey: Golfery Green by default, Shade Black as the alternate.
 - Purple logo exists in Figma. Keep it to merch and one-offs. Never on green.
-- Pure white and pure black versions exist. Skip them on Instagram so the feed stays warm.
+- A pure black version exists. Use Shade Black instead.
+- White files: copy each green SVG and swap the fill to #FFFFFF. The README has the command.
 
 **Clearspace:** from the Figma grid frame, about 14 percent of logo width left and right, about 20 percent of logo height top and bottom.
 
@@ -95,17 +99,37 @@ The logo is a hand-lettered script wordmark with an underline swash that ends in
 - The block-G icon and the arch wordmark in the Logo_Marin frames. Earlier concepts.
 - Badge frame 322:577. The text on path misspells California as "califonia". Fix before exporting.
 - Any layer named Generated Image, Gemini_Generated, or ChatGPT Image. AI concept renders, mood reference only.
-- Placeholder copy "Where precision meets passion..." and "Beyond the Course". Off voice, and it references an outdoor course.
+- Placeholder copy "Where precision meets passion...". Off voice. The "Beyond the course" headline in the same mockups is fine; it became the live tagline.
 
 **Exports needed in `assets/logos/`** (SVG plus 2x PNG, transparent, Cleanspace=false so templates control padding):
 
-- `golfery-wordmark-{flagpole,green,black}`
+- `golfery-wordmark-{flagpole,green,black,white}`
 - `golfery-wordmark-descriptor-{flagpole,green,black}`
 - `golfery-symbol-{flagpole,green,black}`
 - `golfery-badge-{flagpole,green,black}` (outline the text on path first)
 - `golfery-avatar-1080.png`
 
 **Naming note:** Figma calls the cream "Flagpole White". The site CSS and this system call it "Flagpole Cream". Same hex (#FEEFE5). Pick one name and use it everywhere.
+
+---
+
+## 4b. Patterns from golfery.com [proposed, verify against the live page]
+
+The site already solved most of the look. Carry these into Instagram:
+
+| Pattern | On the site | On Instagram |
+|---|---|---|
+| Eyebrow dot | Plex Mono eyebrow led by a small green dot, a ball at address | Before labels on white, cream and grey frames |
+| Italic close | Headline ends with one phrase in Playfair 500 italic | Once per headline, closing phrase only |
+| Hero scrim | Full-bleed photo, bottom-up black scrim, white text left, subject right | Reel covers and brand Stories |
+| Button pair | Filled cream primary, glassy secondary | Story CTA bar uses the glassy style |
+| Proof strip | One line of short proof points in Plex Mono under the hero | Last line of an event or promo frame |
+| Scorecard | Green block with Plex Mono rows, laid out like a scorecard | League standings, promo terms |
+| Split section | Photo one side, eyebrow, headline, short body, one link on the other | Member spotlight, carousel middle slides |
+
+**Content pillars.** The homepage sections are the weekly plan's categories: Golf Better, The Bays, PuttView, Leagues, The Hang, Coworking, Lessons.
+
+**Descriptor.** The site says "Marin's social sports club." Use that in bios and first-touch captions. "Simulator Lounge, Marin California" stays inside the logo lockup only.
 
 ---
 

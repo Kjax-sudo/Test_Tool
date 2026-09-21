@@ -22,6 +22,7 @@
   const hex = (k) => P[k].hex;
   // Push palette and families into CSS so the page chrome follows the tokens too
   const root = document.documentElement.style;
+  if (P.white) root.setProperty("--white", hex("white"));
   root.setProperty("--green", hex("golfery_green")); root.setProperty("--cream", hex("flagpole_cream"));
   root.setProperty("--purple", hex("accent_purple")); root.setProperty("--black", hex("shade_black")); root.setProperty("--grey", hex("hazy_grey"));
   const F = T.type.families;
@@ -33,10 +34,19 @@
 
   // Logo loader with an honest fallback when the SVG has not been exported yet
   const logoFile = (mark, color) => (T.logo.files && T.logo.files[mark] && T.logo.files[mark][color]) || "";
+  const TINT = { white: "white", flagpole: "flagpole_cream", green: "golfery_green", black: "shade_black" };
   function logoImg(mark, color, missingClass) {
     const src = logoFile(mark, color);
     const img = new Image(); img.alt = "Golfery " + mark.replace(/_/g, " "); img.src = src;
-    img.onerror = () => img.replaceWith(el("span", missingClass, "Missing: " + esc(src.split("/").pop())));
+    img.onerror = () => {
+      // Fall back to tinting the green file with a mask, so one export covers every colorway on this page
+      const base = logoFile(mark, "green"); const probe = new Image();
+      probe.onload = () => { const m = el("span", "logo-mask"); m.setAttribute("role", "img"); m.setAttribute("aria-label", img.alt);
+        const u = `url("${new URL(base, location.href).href}") center / contain no-repeat`; m.style.webkitMask = u; m.style.mask = u; m.style.aspectRatio = `${probe.naturalWidth} / ${probe.naturalHeight}`;
+        m.style.color = P[TINT[color]] ? hex(TINT[color]) : "currentColor"; img.replaceWith(m); };
+      probe.onerror = () => img.replaceWith(el("span", missingClass, "Missing: " + esc(src.split("/").pop())));
+      if (base && base !== src) probe.src = base; else probe.onerror();
+    };
     return img;
   }
 
@@ -47,13 +57,17 @@
   nl.append(navImg);
   if (cfg.repo) { const g = $("nav-github"); g.href = cfg.repo; g.hidden = false; }
 
+  // Hero eyebrow and color note from tokens
+  $("hero-eyebrow").textContent = T.facts.descriptor;
+  $("color-note").textContent = (T.color.surface_order ? T.color.surface_order.rule + " " : "") + "Click a swatch to copy its hex.";
+
   // Hero facts
   [["Instagram", T.facts.handle], ["Site", T.facts.site], ["Source of truth", "brand-tokens.json v" + T.meta.version], ["Logo source", "Figma: " + T.meta.figma_source.file]]
     .forEach(([k, v]) => { const d = el("div"); d.append(el("dt", "", esc(k)), el("dd", "", esc(v))); $("hero-facts").append(d); });
 
   // Core rules: derived from tokens so they cannot drift
   [
-    "Green and cream carry every frame. Purple is an accent: one element per frame, never on green.",
+    "White is the page on the web. On Instagram, green and cream carry the frame and white is for text on footage. Purple is an accent, never on green.",
     `Headlines in ${F.display.family}. Body in ${F.body.family}. Dates, scores, codes and labels in ${F.label.family}, uppercase.`,
     `Headline: ${T.type.limits.headline_max_words} words and ${T.type.limits.headline_max_lines} lines max. Nothing under ${T.type.scale_1080.min_size}px on a 1080 canvas.`,
     "The script belongs to the logo. Place the vector, never retype it, never imitate it with a script headline.",
@@ -110,16 +124,17 @@
   // Logos
   $("logo-desc").textContent = T.logo.description + " Source: " + T.meta.figma_source.canonical_section;
   const tiles = [
-    ["wordmark", "green", "flagpole_cream"], ["wordmark", "flagpole", "golfery_green"], ["wordmark_descriptor", "flagpole", "shade_black"],
-    ["symbol", "green", "hazy_grey"], ["badge", "flagpole", "golfery_green"], ["badge", "green", "flagpole_cream"]
+    ["wordmark", "green", "white"], ["wordmark", "white", "footage"], ["wordmark", "flagpole", "golfery_green"], ["wordmark_descriptor", "flagpole", "shade_black"],
+    ["symbol", "green", "flagpole_cream"], ["badge", "white", "footage"], ["badge", "flagpole", "golfery_green"], ["badge", "green", "hazy_grey"]
   ];
   const markInfo = Object.fromEntries(T.logo.marks.map((m) => [m.id, m]));
   const idFor = { wordmark: "wordmark", wordmark_descriptor: "wordmark_with_descriptor", symbol: "symbol_g", badge: "circle_badge" };
   tiles.forEach(([mark, color, bg]) => {
-    const t = el("div", "logo-tile"); const art = el("div", "logo-tile__art"); art.style.background = hex(bg); art.style.color = inkOn(hex(bg));
+    const t = el("div", "logo-tile"); const art = el("div", "logo-tile__art");
+    if (bg === "footage") art.classList.add("logo-tile__art--footage"); else { art.style.background = hex(bg); art.style.color = inkOn(hex(bg)); }
     art.append(logoImg(mark, color, "logo-tile__missing"));
     const info = markInfo[idFor[mark]] || {};
-    t.append(art, el("div", "logo-tile__meta", `<b>${esc(title(mark))}, ${esc(color)} on ${esc(title(bg))}</b>${esc(info.use || "")}<br><code>${esc(logoFile(mark, color).split("/").pop())}</code>`));
+    t.append(art, el("div", "logo-tile__meta", `<b>${esc(title(mark))}, ${esc(color)} on ${esc(bg === "footage" ? "footage" : title(bg))}</b>${esc(info.use || "")}<br><code>${esc(logoFile(mark, color).split("/").pop())}</code>`));
     $("logo-grid").append(t);
   });
   T.logo.rules.forEach((r) => $("logo-rules").append(el("li", "", esc(r))));
@@ -160,24 +175,24 @@
 
   const builders = {
     brand_story() { const [w, f] = frame("916", "footage"); f.style.paddingTop = `calc(${sz.top} * var(--u))`; f.style.paddingBottom = `calc(${sz.bottom} * var(--u))`;
-      const chip = el("div", "ig__chip", "<i></i>Golfery"); const mark = el("div", "ig__hero-mark"); mark.append(logoSlot("wordmark_descriptor", "flagpole"));
+      const chip = el("div", "ig__chip", "<i></i>Golfery"); const mark = el("div", "ig__hero-mark"); mark.append(logoSlot("wordmark_descriptor", "white"));
       add(f, el("div", "ig__stand-in", "Your footage"), chip, mark, el("div", "ig__cta", "Book now")); return w; },
     reel_cover() { const [w, f] = frame("916", "footage"); f.style.paddingTop = `calc(${sz.top + 60} * var(--u))`; f.style.paddingBottom = `calc(${sz.bottom} * var(--u))`;
-      add(f, el("div", "ig__stand-in", "Your footage"), push, el("p", "ig__label", "Head Pro tips"), gap, h("ig__h--l", "Stop topping your driver"), gap, logoSlot("wordmark", "flagpole")); return w; },
+      add(f, el("div", "ig__stand-in", "Your footage"), push, el("p", "ig__label", "Head Pro tips"), gap, h("ig__h--l", "Stop topping <em>your driver</em>"), gap, logoSlot("wordmark", "white")); return w; },
     event_announce() { const [w, f] = frame("45", "green");
-      add(f, el("p", "ig__label", "Thu Oct 08 / 6pm"), gap, h("ig__h--xl", "League night is back"), gap, el("p", "ig__sub", "Two-person teams. Eight weeks."), push, el("p", "ig__body", "Sign up at the front desk or through the link in bio."), gap, logoSlot("wordmark", "flagpole")); return w; },
+      add(f, el("p", "ig__label", "Thu Oct 08 / 6pm"), gap, h("ig__h--xl", "League night <em>is back</em>"), gap, el("p", "ig__sub", "Two-person teams. Eight weeks."), push, el("p", "ig__body", "Sign up at the front desk or through the link in bio."), gap, logoSlot("wordmark", "flagpole")); return w; },
     league_standings() { const [w, f] = frame("45", "black"); const ul = el("ul", "ig__rows");
       [["Team name one", "00"], ["Team name two", "00"], ["Team name three", "00"], ["Team name four", "00"]].forEach(([a, b]) => ul.append(el("li", "", `<span>${a}</span><span class="ig__stat">${b}</span>`)));
       add(f, el("p", "ig__label ig__label--purple", "Week 03 standings"), gap, h("ig__h--m", "Thursday league"), gap, ul, push, logoSlot("wordmark", "flagpole")); return w; },
     member_spotlight() { const [w, f] = frame("45", "footage"); const p = el("div", "ig__panel");
-      add(p, el("p", "ig__label", "Member spotlight"), gap, h("ig__h--m", "Member name"), gap, el("p", "ig__body", "One real sentence from them, in their words. Consent flag required."));
+      add(p, el("p", "ig__label ig__label--dot", "Member spotlight"), gap, h("ig__h--m", "Member name"), gap, el("p", "ig__body", "One real sentence from them, in their words. Consent flag required."));
       add(f, el("div", "ig__stand-in", "Their photo"), p); return w; },
     promo_offer() { const [w, f] = frame("45", "cream");
-      add(f, el("p", "ig__label", "Partner offer"), gap, h("ig__h--xl", "First session on us"), gap, el("p", "ig__body", "Terms in one line. Expiry date always shown."), push, el("span", "ig__code", "CODE00"), gap, logoSlot("wordmark", "green")); return w; },
+      add(f, el("p", "ig__label ig__label--dot", "Partner offer"), gap, h("ig__h--xl", "First session <em>on us</em>"), gap, el("p", "ig__body", "Terms in one line. Expiry date always shown."), push, el("span", "ig__code", "CODE00"), gap, logoSlot("wordmark", "green")); return w; },
     tip_carousel() { const [w, f] = frame("45", "green"); const dots = el("div", "ig__dots", "<i></i><i></i><i></i><i></i><i></i>");
       add(f, el("p", "ig__label", "Swipe / 5 slides"), gap, h("ig__h--l", "Three fixes for a slice"), push, dots, gap, logoSlot("wordmark", "flagpole")); return w; },
     story_frame() { const [w, f] = frame("916", "grey"); f.style.paddingTop = `calc(${sz.top} * var(--u))`; f.style.paddingBottom = `calc(${sz.bottom} * var(--u))`;
-      add(f, el("p", "ig__label", "Tonight"), gap, h("ig__h--m", "Two bays open after 7"), push, el("p", "ig__body", "Space left here for a poll, link or countdown sticker.")); f.style.color = hex("golfery_green"); return w; },
+      add(f, el("p", "ig__label ig__label--dot", "Tonight"), gap, h("ig__h--m", "Two bays open after 7"), push, el("p", "ig__body", "Space left here for a poll, link or countdown sticker.")); f.style.color = hex("golfery_green"); return w; },
     quote_card() { const [w, f] = frame("45", "grey"); const q = h("ig__h--l", "Best Tuesday night in Marin."); q.style.fontStyle = "italic"; q.style.color = hex("golfery_green");
       add(f, push, q, gap, el("p", "ig__label", "Member, since 2026"), push); return w; }
   };
@@ -196,9 +211,9 @@
   // Markdown sections from the brand doc
   const secs = GolferyMD.sections(DOC);
   const find = (needle) => Object.keys(secs).find((k) => k.toLowerCase().includes(needle));
-  [["photo", "photo and video"], ["voice", "voice"], ["legal", "partner and legal"], ["refusals", "refusal list"], ["open", "open items"]].forEach(([id, needle]) => {
+  [["patterns", "patterns from golfery.com"], ["photo", "photo and video"], ["voice", "voice"], ["legal", "partner and legal"], ["refusals", "refusal list"], ["open", "open items"]].forEach(([id, needle]) => {
     const k = find(needle); if (!k) return;
-    $(id).innerHTML = GolferyMD.render(secs[k].replace(/^##\s+\d+\.\s+/, "## "));
+    $(id).innerHTML = GolferyMD.render(secs[k].replace(/^##\s+\d+[a-z]?\.\s+/, "## "));
   });
 
   // Helpers
