@@ -2,10 +2,7 @@
 // Enough for docs/brand-system.md. Not a general purpose parser.
 (function () {
   const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  const status = (s) => s.replace(/\[(confirmed|proposed|pending)([^\]]*)\]/gi, (m, k, rest) =>
-    `<span class="status status--${k.toLowerCase()}">${k}${rest}</span>`)
-    .replace(/\[flag[^\]]*\]/gi, '<span class="status status--flag">needs founder review</span>');
-  const inline = (s) => status(esc(s)
+  const inline = (s) => (esc(s)
     .replace(/`([^`]+)`/g, "<code>$1</code>")
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/(^|[\s"(])\*([^*\s][^*]*)\*/g, "$1<em>$2</em>")

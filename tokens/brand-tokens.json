@@ -1,38 +1,11 @@
 {
   "meta": {
     "brand": "The Golfery",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "updated": "2026-09-21",
-    "status_key": {
-      "confirmed": "Live on golfery.com, in the Figma library, or decided by Kel or Hannah",
-      "proposed": "Claude default, needs founder review",
-      "pending": "Waiting on source asset"
-    },
-    "rule": "This file is the single source of truth. docs/brand-system.md, the /on-brand skill, and the hosted brand page all read from here. Edit here first.",
-    "figma_source": {
-      "file": "Logo and Brand - Golfery",
-      "fileKey": "5Tc4i7bgesaC5EvalUgcNQ",
-      "page": "Brand and Logo Library (278:43)",
-      "canonical_section": "Section 3 (322:1156). Everything outside Sections 3 and 4 is exploration and must not be used."
-    },
-    "web_source": {
-      "site": "golfery.com",
-      "note": "Square Online renders client-side, so an automated fetch returns only meta tags. Web patterns below come from the homepage build (11 custom blocks under the .glyh namespace). Verify against the live page."
-    },
-    "approvers": [
-      "Kel",
-      "Hannah"
-    ],
-    "sources": [
-      "Figma: Logo and Brand - Golfery",
-      "golfery.com (homepage build, pricing page screenshots 2026-09-21)",
-      "Brand essence doc by Hannah",
-      "Golfery Member Agreement 2026",
-      "Founder decisions 2026-09-21"
-    ]
+    "rule": "This file is the single source of truth for brand values. docs/brand-system.md explains how to apply them. If the two disagree, this file wins."
   },
   "facts": {
-    "status": "confirmed",
     "name_full": "The Golfery",
     "name_short": "Golfery",
     "handle": "@golfery.marin",
@@ -40,22 +13,12 @@
     "email": "hello@golfery.com",
     "address": "647 Irwin Street, San Rafael, CA 94901",
     "descriptor": "Marin's social sports club",
-    "do_not_hardcode": [
-      "membership prices",
-      "bay count",
-      "hours",
-      "promo codes"
-    ],
-    "do_not_hardcode_reason": "These change. Pull from facts.md at draft time and flag for human check before posting.",
-    "descriptor_source": "golfery.com meta description, read 2026-09-21",
     "descriptor_long": "Premium simulator bays, coworking, and curated events in San Rafael, CA",
     "tagline": {
-      "text": "Where Golf Lives Beyond the Course",
-      "status": "confirmed"
+      "text": "Where Golf Lives Beyond the Course"
     },
     "logo_descriptor": "SIMULATOR LOUNGE / MARIN CALIFORNIA (logo lockup only, not for captions)",
     "bays": {
-      "status": "confirmed 2026-09-21",
       "count": 5,
       "names": [
         "The National",
@@ -63,13 +26,7 @@
         "Stonetree",
         "Marin",
         "Indian Valley"
-      ],
-      "retired_names": [
-        "Meadow",
-        "The Meadow",
-        "Meadow Club"
-      ],
-      "retired_reason": "No name rights. Never use in any content. The Figma floor plan still shows it."
+      ]
     },
     "other_zones": [
       "PuttView",
@@ -81,15 +38,8 @@
     ],
     "subtagline": {
       "text": "Love the Game. Live the Hang.",
-      "status": "confirmed",
       "use": "Reel end card line"
     },
-    "tagline_alternates": [
-      "Where Golf Lives Better",
-      "Golf, Anytime",
-      "Respect the Game. Redefine the Experience.",
-      "The Modern Golfer's Club"
-    ],
     "audience": {
       "primary": [
         "Younger professionals, late 20s to 50s, with disposable income",
@@ -125,13 +75,11 @@
     }
   },
   "color": {
-    "status": "confirmed",
     "palette": {
       "chalk_white": {
         "hex": "#FFFAF7",
         "role": "Page and document background. Text and logo on footage.",
-        "status": "proposed hex and name",
-        "note": "A whisper of the Flagpole hue (24 degrees), the same way Shade Black is a near-black rather than #000000. golfery.com cards use #FFFFFF today; if this is adopted, update the site cards to match."
+        "note": "A whisper of the Flagpole hue (24 degrees), the same way Shade Black is a near-black rather than #000000."
       },
       "golfery_green": {
         "hex": "#345C2C",
@@ -139,8 +87,7 @@
       },
       "flagpole_white": {
         "hex": "#FEEFE5",
-        "role": "Warm surface. Panels, cards, post backgrounds. Text on green or black.",
-        "figma_variable": "Brand/Flagpole White"
+        "role": "Warm surface. Panels, cards, post backgrounds. Text on green or black."
       },
       "accent_purple": {
         "hex": "#7A76AE",
@@ -264,7 +211,7 @@
         "a": "accent_purple",
         "b": "golfery_green",
         "contrast": 1.85,
-        "reason": "Unreadable as text. Purple shapes beside green are fine, as with the Most Popular pill. The Practice Round page sets a purple text line on green; change it to Flagpole White."
+        "reason": "Unreadable as text. Purple shapes beside green are fine, as with the Most Popular pill."
       },
       {
         "a": "golfery_green",
@@ -292,37 +239,15 @@
       }
     ],
     "usage_ratio": {
-      "status": "confirmed",
       "rule": "Instagram frame: about 60 percent green or Flagpole White, 30 percent the other, 10 percent or less purple. Black is for dark variants and Reel caption bars. White is text and logo on footage. Web and documents: white page, Flagpole White and grey panels, green blocks."
     },
     "on_photo_text": {
-      "status": "confirmed on golfery.com hero",
       "rule": "Text over photo or video is white on a shade_black gradient scrim, 0 to 60 percent opacity, bottom up. Flagpole White is the alternate. Never place green or purple text directly on footage."
     },
-    "figma_variables_found": [
-      "Brand/Flagpole White #FEEFE5",
-      "Brand/Golfery Green #345C2C"
-    ],
     "surface_order": {
-      "status": "confirmed",
       "rule": "Chalk White is the page. Flagpole White and Hazy Grey sit on it as panels. Green and black are full-bleed blocks. Instagram frames still lead with green or Flagpole White so the feed stays warm; white there is for text and logo on footage."
     },
-    "white_options": [
-      {
-        "hex": "#FFFFFF",
-        "label": "Pure white, what golfery.com cards use today"
-      },
-      {
-        "hex": "#FFFAF7",
-        "label": "Chalk White, proposed"
-      },
-      {
-        "hex": "#FFF7F1",
-        "label": "Warmer alternate"
-      }
-    ],
     "category_colors": {
-      "status": "confirmed on golfery.com/pricing",
       "rule": "Offers are color coded. Keep the code on Instagram so a follower can tell the category before reading.",
       "map": {
         "golf": "flagpole_white card, shade_black and green text",
@@ -333,7 +258,6 @@
     }
   },
   "type": {
-    "status": "confirmed",
     "families": {
       "display": {
         "family": "Playfair Display",
@@ -370,7 +294,6 @@
       }
     },
     "scale_1080": {
-      "status": "proposed",
       "note": "Pixel sizes on a 1080px wide canvas. A phone renders this at roughly one third scale, so 36px is the legibility floor.",
       "headline_xl": {
         "family": "display",
@@ -417,22 +340,15 @@
       "min_size": 36
     },
     "limits": {
-      "status": "proposed",
       "headline_max_words": 7,
       "headline_max_lines": 3,
       "body_max_words_per_slide": 35,
       "families_per_frame": 3,
       "sizes_per_frame": 3
-    },
-    "source_note": "Weights match the golfery.com font load: Playfair Display 500, 600 and 500 italic; Archivo 400 to 700; IBM Plex Mono 400, 500. Hannah's earlier font options (Montserrat, Inter, DM Sans, Merriweather, Libre Baskerville, Sohne) are retired.",
-    "notes": [
-      "Prices are set in Playfair Display, as on the pricing page. Sim stats, dates and codes stay in IBM Plex Mono.",
-      "Eyebrows on the pricing page read as Archivo, bold, wide tracking, while the homepage uses IBM Plex Mono. Instagram uses Plex Mono. Worth unifying the site to one."
-    ]
+    }
   },
   "layout": {
-    "status": "proposed",
-    "note": "Instagram moves its UI chrome often. Verify safe zones against the live app each quarter.",
+    "note": "Instagram moves its UI chrome often. Check safe zones against the live app each quarter.",
     "canvas": {
       "feed_portrait": {
         "w": 1080,
@@ -469,12 +385,10 @@
     "corner_radius_note": "24px matches the site cards. Pills are fully rounded."
   },
   "logo": {
-    "status": "confirmed, exported to assets/logos",
     "description": "Hand-lettered script wordmark 'Golfery' with an underline swash that ends in a club head. Optional descriptor lockup below it.",
     "marks": [
       {
         "id": "wordmark",
-        "figma_node": "322:52",
         "component": "Logo",
         "variant_props": {
           "bg is": [
@@ -504,20 +418,17 @@
       },
       {
         "id": "wordmark_with_descriptor",
-        "figma_node": "322:52 (Description=true)",
         "descriptor_text": "SIMULATOR LOUNGE / MARIN CALIFORNIA",
         "use": "First-touch contexts only: ads, partner posts, anything a non-follower sees first."
       },
       {
         "id": "symbol_g",
-        "figma_node": "322:490",
         "component": "Symbol",
         "native_size": "256x479",
         "use": "Small spaces: Story header chip, watermark-size credits, favicon."
       },
       {
         "id": "circle_badge",
-        "figma_node": "322:505",
         "component": "Circle Icon",
         "text_on_path": "SIMULATOR LOUNGE · MARIN CALIFORNIA",
         "native_size": "375x369",
@@ -525,18 +436,15 @@
       },
       {
         "id": "icon_with_cleanspace",
-        "figma_node": "322:555",
         "native_size": "343x344",
         "use": "Avatar and app-icon style crops."
       },
       {
         "id": "descriptor_only",
-        "figma_node": "322:162",
         "use": "Rare. Pair with symbol when the wordmark will not fit."
       },
       {
         "id": "signature_small",
-        "figma_node": "537:619",
         "native_size": "255x155",
         "use": "Minimum-size version of the wordmark."
       }
@@ -547,31 +455,16 @@
       "on_footage": "Chalk White, matching the site hero. Flagpole White is the alternate.",
       "on_chalk_flagpole_or_grey": "Golfery Green (default) or Shade Black",
       "on_purple": "Flagpole White",
-      "purple_logo": "Exists in Figma. Merch and one-offs only. Never on green.",
-      "pure_black": "Exists in Figma. Use Shade Black instead."
+      "purple_logo": "Merch and one-offs only. Never on green.",
+      "pure_black": "Use Shade Black instead of pure black."
     },
     "clearspace": {
-      "source": "Figma Grid/Cleanspace frame 322:9",
       "rule": "Wordmark 727x440 sits in a 935x612 box: about 14 percent of logo width on left and right, about 20 percent of logo height on top and bottom. Nothing enters that box."
     },
     "min_size_1080_canvas": {
       "wordmark_width_px": 220,
       "symbol_height_px": 96,
-      "circle_badge_width_px": 240,
-      "status": "proposed"
-    },
-    "exports_needed": {
-      "path": "assets/logos",
-      "format": "SVG plus PNG at 2x, transparent background",
-      "files": [
-        "golfery-wordmark-{flagpole,green,black,white}.svg",
-        "golfery-wordmark-descriptor-{flagpole,green,black,white}.svg",
-        "golfery-symbol-{flagpole,green,black,white}.svg",
-        "golfery-badge-{flagpole,green,black,white}.svg",
-        "golfery-avatar-1080.png"
-      ],
-      "how": "In Figma, select each variant in Section 3, outline the text-on-path in the badge first, then Export. Use Cleanspace=false variants so templates control padding.",
-      "white_shortcut": "No Figma trip needed: copy each green SVG and replace fill=\"#345C2C\" with fill=\"#FFFAF7\". README has the one-line command."
+      "circle_badge_width_px": 240
     },
     "rules": [
       "One mark per frame",
@@ -581,28 +474,6 @@
       "Never set headlines in a script face to imitate the logo",
       "No shadows, outlines, gradients, rotation, stretching, or off-palette recolors",
       "Carousel: first and last slide only. Reels: cover and end card only. No persistent watermark."
-    ],
-    "do_not_use": [
-      {
-        "what": "Older lockups reading 'OF MARIN CA. 94901' or 'OF MARIN CA. 90401' (Sections 1 and 2, loose frames)",
-        "why": "Superseded by the MARIN CALIFORNIA descriptor. 90401 is also the wrong zip."
-      },
-      {
-        "what": "Block-G icon (G_icon 278:71, 305:2) and the arch wordmark in Logo_Marin frames",
-        "why": "Earlier concepts, replaced by the script system"
-      },
-      {
-        "what": "Badge frame 322:577",
-        "why": "Text on path misspells California as 'califonia'. Fix in Figma before any export."
-      },
-      {
-        "what": "Any layer named Generated Image, Gemini_Generated, or ChatGPT Image",
-        "why": "AI concept renders. Mood reference only, never posted."
-      },
-      {
-        "what": "Placeholder web copy in the Figma mockups: 'Where precision meets passion. Experience golf at its finest...'",
-        "why": "Off voice and uses words on the avoid list. The headline 'Beyond the course' in those same mockups is fine; it became the live tagline."
-      }
     ],
     "files": {
       "wordmark": {
@@ -632,12 +503,10 @@
     }
   },
   "templates": {
-    "status": "proposed",
     "list": [
       {
         "id": "brand_story",
         "canvas": "reel_story",
-        "source": "Figma Stories 1 and 2 (322:387, 322:421)",
         "bg": "full-bleed footage, slightly darkened",
         "elements": [
           "symbol chip + 'Golfery' top left",
@@ -689,8 +558,7 @@
           "label",
           "headline_m (name)",
           "body (quote)"
-        ],
-        "requires": "consent flag true"
+        ]
       },
       {
         "id": "promo_offer",
@@ -732,7 +600,6 @@
     ]
   },
   "web_patterns": {
-    "status": "confirmed from the homepage build and pricing page screenshots",
     "patterns": [
       {
         "id": "eyebrow_dot",
@@ -800,34 +667,6 @@
       "Coworking",
       "Lessons",
       "Gallery"
-    ],
-    "site_section_use": "These nine sections are ready-made content pillars for the weekly plan."
-  },
-  "workflow": {
-    "approvers": [
-      "Kel",
-      "Hannah"
-    ],
-    "rule": "Claude drafts to /drafts. Kel or Hannah moves work to /approved. Nothing posts without one of them.",
-    "reference_imagery": "No reference post set. Use the golfery.com photography as the visual benchmark."
-  },
-  "consent": {
-    "status": "confirmed from Member Agreement 2026, section 9.2",
-    "members": "Covered. The agreement grants Golfery the right to use member name, image, likeness and voice in marketing and social media.",
-    "opt_outs": "Members can opt out of staged marketing content in writing. Keep the list in facts.md and check it before featuring anyone by name or as the subject.",
-    "guests_and_drop_ins": "Not covered by the member agreement. Ask on the day, or confirm the guest waiver includes a media release.",
-    "minors": "Junior members are covered through the guardian signature. Any other minor needs a guardian yes before being the subject of a post.",
-    "asset_index_values": [
-      "member",
-      "staff",
-      "asked",
-      "unknown"
-    ],
-    "rule": "Only 'unknown' plus a recognizable face as the subject blocks a post. Background and crowd appearances are fine."
-  },
-  "alcohol": {
-    "status": "confirmed 2026-09-21",
-    "rule": "Drink content can be front and center.",
-    "note": "If a drink-forward post is boosted as an ad, set the audience to 21 and over."
+    ]
   }
 }

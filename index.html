@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Golfery Brand System</title>
-  <meta name="description" content="Colors, type, logos, Instagram templates, photo rules and voice for The Golfery. Built for the team and for Claude.">
+  <meta name="description" content="Colors, type, logos, Instagram templates, photo direction and voice for The Golfery.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,12 +20,10 @@
       <span class="nav__sub">Brand system</span>
     </a>
     <div class="nav__scroll">
-      <p class="nav__group">Docs</p>
-      <a class="nav__item" href="AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>
-      <a class="nav__item" href="docs/brand-system.md" target="_blank" rel="noopener">brand-system.md</a>
-      <a class="nav__item" href="tokens/brand-tokens.json" target="_blank" rel="noopener">brand-tokens.json</a>
-      <a class="nav__item" href="facts.md" target="_blank" rel="noopener">facts.md</a>
-      <a class="nav__item" id="nav-github" href="#" target="_blank" rel="noopener" hidden>GitHub</a>
+      <p class="nav__group">Downloads</p>
+      <a class="nav__item" href="docs/brand-system.md" target="_blank" rel="noopener">Brand guide</a>
+      <a class="nav__item" href="tokens/brand-tokens.json" target="_blank" rel="noopener">Design tokens</a>
+      <a class="nav__item" href="assets/golfery-logos.zip" download>Logo pack</a>
 
       <p class="nav__group">Foundations</p>
       <a class="nav__item" href="#essence">Brand essence</a>
@@ -34,7 +32,7 @@
       <a class="nav__item" href="#pairings">Pairings</a>
       <a class="nav__item" href="#typography">Typography</a>
       <a class="nav__item" href="#logos">Logos</a>
-      <a class="nav__item" href="#patterns">Patterns from the site</a>
+      <a class="nav__item" href="#patterns">Design patterns</a>
       <a class="nav__item" href="#layout">Canvas and safe zones</a>
 
       <p class="nav__group">Instagram</p>
@@ -43,8 +41,7 @@
       <a class="nav__item" href="#voice">Voice</a>
 
       <p class="nav__group">Rules</p>
-      <a class="nav__item" href="#legal">Guardrails</a>
-      <a class="nav__item" href="#refusals">Refusal list</a>
+      <a class="nav__item" href="#legal">Usage rules</a>
     </div>
     <p class="nav__foot" id="nav-version"></p>
   </nav>
@@ -57,7 +54,7 @@
       <div class="hero__text">
         <p class="eyebrow eyebrow--dot" id="hero-eyebrow">Marin's social sports club</p>
         <h1>The Golfery <em>brand system</em></h1>
-        <p class="hero__lede">Everything needed to make an Instagram post that looks and sounds like us: the real colors, type, logo files, post templates, footage rules and voice. The page renders from the same two files Claude reads, so what you see here is what it builds with.</p>
+        <p class="hero__lede">Everything needed to make work that looks and sounds like The Golfery: colors, type, logo files, post templates, photo direction, and voice.</p>
         <dl class="hero__facts" id="hero-facts"></dl>
       </div>
       <div class="hero__frame" id="hero-frame" aria-label="Example event announcement post"></div>
@@ -108,15 +105,9 @@
         <p class="note" id="logo-desc"></p>
       </div>
       <div class="logo-grid" id="logo-grid"></div>
-      <div class="two-col">
-        <div>
-          <h3>Rules</h3>
-          <ul class="plain" id="logo-rules"></ul>
-        </div>
-        <div>
-          <h3>Do not use</h3>
-          <ul class="plain plain--no" id="logo-dont"></ul>
-        </div>
+      <div>
+        <h3>Rules</h3>
+        <ul class="plain" id="logo-rules"></ul>
       </div>
     </section>
 
@@ -142,10 +133,10 @@
     <section class="section md" id="photo"></section>
     <section class="section md" id="voice"></section>
     <section class="section md" id="legal"></section>
-    <section class="section md" id="refusals"></section>
 
     <footer class="foot">
-      <p>Edit <code>tokens/brand-tokens.json</code> or <code>docs/brand-system.md</code> in GitHub. Vercel redeploys this page on every push.</p>
+      <p>Questions: <a href="mailto:hello@golfery.com">hello@golfery.com</a></p>
+      <p class="foot__version" id="foot-version"></p>
     </footer>
   </main>
 </div>

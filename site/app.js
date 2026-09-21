@@ -52,17 +52,17 @@
 
   // Sidebar
   $("nav-version").textContent = "v" + T.meta.version + "  updated " + T.meta.updated;
+  $("foot-version").textContent = "Brand system v" + T.meta.version + ", updated " + T.meta.updated + ".";
   const nl = $("nav-logo"); const navImg = logoImg("wordmark", "flagpole", "nav__logo-fallback");
   navImg.onerror = () => navImg.replaceWith(el("span", "nav__logo-fallback", esc(T.facts.name_full)));
   nl.append(navImg);
-  if (cfg.repo) { const g = $("nav-github"); g.href = cfg.repo; g.hidden = false; }
 
   // Hero eyebrow and color note from tokens
   $("hero-eyebrow").textContent = T.facts.descriptor;
   $("color-note").textContent = (T.color.surface_order ? T.color.surface_order.rule + " " : "") + "Click a swatch to copy its hex.";
 
   // Hero facts
-  [["Instagram", T.facts.handle], ["Site", T.facts.site], ["Source of truth", "brand-tokens.json v" + T.meta.version], ["Tagline", T.facts.tagline.text], ["Approvers", T.workflow.approvers.join(" or ")]]
+  [["Instagram", T.facts.handle], ["Site", T.facts.site], ["Tagline", T.facts.tagline.text], ["Contact", T.facts.email]]
     .forEach(([k, v]) => { const d = el("div"); d.append(el("dt", "", esc(k)), el("dd", "", esc(v))); $("hero-facts").append(d); });
 
   // Core rules: derived from tokens so they cannot drift
@@ -74,8 +74,8 @@
     `Feed posts are ${T.layout.canvas.feed_portrait.ratio}. Reels, covers and Stories are ${T.layout.canvas.reel_story.ratio}. ${T.layout.margin}px margins.`,
     "People in four of every five posts. Clean room shots for reveals only. No AI people or renders.",
     "No em dashes. Sentence case. Zero to two emoji.",
-    `Never state ${T.facts.do_not_hardcode.join(", ")} from memory. Pull from facts.md.`,
-    `Claude drafts. ${T.workflow.approvers.join(" or ")} approves. Bays: ${T.facts.bays.names.join(", ")}.`
+    `The five bays are ${T.facts.bays.names.join(", ")}. Use these exact names.`,
+    "Send work to hello@golfery.com before it goes live."
   ].forEach((r) => $("rules-list").append(el("li", "", "<span>" + esc(r) + "</span>")));
 
   // Swatches
@@ -84,18 +84,13 @@
     b.append(el("span", "", `<span class="swatch__name">${esc(title(k))}</span><span class="swatch__role" style="display:block">${esc(c.role)}</span>`), el("span", "swatch__hex", c.hex));
     b.addEventListener("click", () => copy(c.hex)); $("swatches").append(b);
   });
-  if (T.color.white_options) {
-    const strip = el("div", "white-opts");
-    T.color.white_options.forEach((o) => { const b = el("button", "white-opt"); b.type = "button"; b.style.background = o.hex; b.innerHTML = `<b>${esc(o.hex)}</b><span>${esc(o.label)}</span>`; b.addEventListener("click", () => copy(o.hex)); strip.append(b); });
-    const wrap = el("div", "white-wrap"); wrap.append(el("p", "label", "Which white? Shown on Flagpole White, as cards sit on the site"), strip); $("swatches").after(wrap);
-  }
   if (T.color.category_colors) {
     const cc = el("div", "cats"); const M = { golf: ["flagpole_white", "shade_black"], coworking: ["accent_purple", "flagpole_white"], drop_in: ["shade_black", "flagpole_white"], membership_featured: ["golfery_green", "flagpole_white"] };
     Object.entries(M).forEach(([k, [bg, fg]]) => { const c = el("div", "cat", `<span class="cat__label">${esc(title(k))}</span><span class="cat__title">${k === "coworking" ? "Coworking Pack" : k === "drop_in" ? "1-Hour Bay Session" : k === "golf" ? "Golf Pack" : "Amateur Member"}</span>`); c.style.background = hex(bg); c.style.color = hex(fg); cc.append(c); });
     const h3 = el("h3", "", "Category code"); const n = el("p", "note", esc(T.color.category_colors.rule)); n.style.marginBottom = "16px";
     $("color-ratio").after(h3, n, cc);
   }
-  $("color-ratio").innerHTML = status(T.color.usage_ratio.status) + " " + esc(T.color.usage_ratio.rule);
+  $("color-ratio").textContent = T.color.usage_ratio.rule;
 
   // Pairings
   T.color.pairings_approved.forEach((p) => {
@@ -108,7 +103,7 @@
     d.append(el("div", "pair__demo", `League night<small>Thursdays, 6 to 9pm</small>`), el("div", "pair__meta", `<span class="pair__ratio">${p.contrast.toFixed(2)} : 1</span>${esc(title(p.a))} with ${esc(title(p.b))}. ${esc(p.reason)}`));
     d.firstChild.style.cssText = `background:${hex(p.b)};color:${hex(p.a)}`; $("pairs-no").append(d);
   });
-  $("on-photo").innerHTML = status(T.color.on_photo_text.status) + " " + esc(T.color.on_photo_text.rule);
+  $("on-photo").textContent = T.color.on_photo_text.rule;
 
   // Typography
   const samples = { display: "Tee it up after work", body: "Book a bay, bring a friend", label: "OCT 03 / BAY 2 / 287 YDS" };
@@ -133,7 +128,7 @@
     .forEach(([n, t]) => $("type-limits").append(el("li", "", `<b>${esc(n)}</b>${esc(t)}`)));
 
   // Logos
-  $("logo-desc").textContent = T.logo.description + " Source: " + T.meta.figma_source.canonical_section;
+  $("logo-desc").textContent = T.logo.description;
   const tiles = [
     ["wordmark", "green", "chalk_white"], ["wordmark", "white", "footage"], ["wordmark", "flagpole", "golfery_green"], ["wordmark_descriptor", "flagpole", "shade_black"],
     ["symbol", "green", "flagpole_white"], ["badge", "white", "footage"], ["badge", "flagpole", "golfery_green"], ["badge", "green", "hazy_grey"]
@@ -145,15 +140,15 @@
     if (bg === "footage") art.classList.add("logo-tile__art--footage"); else { art.style.background = hex(bg); art.style.color = inkOn(hex(bg)); }
     art.append(logoImg(mark, color, "logo-tile__missing"));
     const info = markInfo[idFor[mark]] || {};
-    t.append(art, el("div", "logo-tile__meta", `<b>${esc(title(mark))}, ${esc(color)} on ${esc(bg === "footage" ? "footage" : title(bg))}</b>${esc(info.use || "")}<br><code>${esc(logoFile(mark, color).split("/").pop())}</code>`));
+    const href = logoFile(mark, color);
+    t.append(art, el("div", "logo-tile__meta", `<b>${esc(title(mark))}, ${esc(color)} on ${esc(bg === "footage" ? "footage" : title(bg))}</b>${esc(info.use || "")}<br><a class="logo-tile__dl" href="${esc(href)}" download>Download SVG</a> <code>${esc(href.split("/").pop())}</code>`));
     $("logo-grid").append(t);
   });
   T.logo.rules.forEach((r) => $("logo-rules").append(el("li", "", esc(r))));
   $("logo-rules").append(el("li", "", "<b>Clearspace.</b> " + esc(T.logo.clearspace.rule)));
-  T.logo.do_not_use.forEach((d) => $("logo-dont").append(el("li", "", `<b>${esc(d.what)}</b><span>${esc(d.why)}</span>`)));
 
   // Canvases
-  $("layout-note").innerHTML = status(T.layout.status) + " " + esc(T.layout.note) + " Hatched areas are covered by Instagram's own interface. The dashed line is what the profile grid shows.";
+  $("layout-note").textContent = T.layout.note + " Hatched areas are covered by Instagram's own interface. The dashed line is what the profile grid shows.";
   const sz = T.layout.safe_zone_reel_story;
   Object.entries(T.layout.canvas).forEach(([k, c]) => {
     const w = el("div", "canvas"); const box = el("div", "canvas__box"); box.style.aspectRatio = `${c.w} / ${c.h}`;
@@ -222,13 +217,12 @@
   // Markdown sections from the brand doc
   const secs = GolferyMD.sections(DOC);
   const find = (needle) => Object.keys(secs).find((k) => k.toLowerCase().includes(needle));
-  [["essence", "brand essence"], ["patterns", "patterns from golfery.com"], ["photo", "photo and video"], ["voice", "voice"], ["legal", "guardrails"], ["refusals", "refusal list"]].forEach(([id, needle]) => {
+  [["essence", "brand essence"], ["patterns", "design patterns"], ["photo", "photo and video"], ["voice", "voice"], ["legal", "usage rules"]].forEach(([id, needle]) => {
     const k = find(needle); if (!k) return;
     $(id).innerHTML = GolferyMD.render(secs[k].replace(/^##\s+\d+[a-z]?\.\s+/, "## "));
   });
 
   // Helpers
-  function status(s) { const k = /confirmed/i.test(s) ? "confirmed" : /pending/i.test(s) ? "pending" : "proposed"; return `<span class="status status--${k}" style="margin-left:0">${k}</span>`; }
   let tt; function copy(text) { navigator.clipboard && navigator.clipboard.writeText(text); const t = $("toast"); t.textContent = "Copied " + text; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => (t.hidden = true), 1400); }
 
   // Nav: active section and mobile toggle

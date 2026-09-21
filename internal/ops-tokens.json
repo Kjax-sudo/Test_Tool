@@ -1,0 +1,200 @@
+{
+  "workflow": {
+    "approvers": [
+      "Kel",
+      "Hannah"
+    ],
+    "rule": "Claude drafts to /drafts. Kel or Hannah moves work to /approved. Nothing posts without one of them.",
+    "reference_imagery": "No reference post set. Use the golfery.com photography as the visual benchmark."
+  },
+  "consent": {
+    "status": "confirmed from Member Agreement 2026, section 9.2",
+    "members": "Covered. The agreement grants Golfery the right to use member name, image, likeness and voice in marketing and social media.",
+    "opt_outs": "Members can opt out of staged marketing content in writing. Keep the list in facts.md and check it before featuring anyone by name or as the subject.",
+    "guests_and_drop_ins": "Not covered by the member agreement. Ask on the day, or confirm the guest waiver includes a media release.",
+    "minors": "Junior members are covered through the guardian signature. Any other minor needs a guardian yes before being the subject of a post.",
+    "asset_index_values": [
+      "member",
+      "staff",
+      "asked",
+      "unknown"
+    ],
+    "rule": "Only 'unknown' plus a recognizable face as the subject blocks a post. Background and crowd appearances are fine."
+  },
+  "alcohol": {
+    "status": "confirmed 2026-09-21",
+    "rule": "Drink content can be front and center.",
+    "note": "If a drink-forward post is boosted as an ad, set the audience to 21 and over."
+  },
+  "meta": {
+    "approvers": [
+      "Kel",
+      "Hannah"
+    ],
+    "sources": [
+      "Figma: Logo and Brand - Golfery",
+      "golfery.com (homepage build, pricing page screenshots 2026-09-21)",
+      "Brand essence doc by Hannah",
+      "Golfery Member Agreement 2026",
+      "Founder decisions 2026-09-21"
+    ],
+    "web_source": {
+      "site": "golfery.com",
+      "note": "Square Online renders client-side, so an automated fetch returns only meta tags. Web patterns below come from the homepage build (11 custom blocks under the .glyh namespace). Verify against the live page."
+    },
+    "figma_source": {
+      "file": "Logo and Brand - Golfery",
+      "fileKey": "5Tc4i7bgesaC5EvalUgcNQ",
+      "page": "Brand and Logo Library (278:43)",
+      "canonical_section": "Section 3 (322:1156). Everything outside Sections 3 and 4 is exploration and must not be used."
+    },
+    "status_key": {
+      "confirmed": "Live on golfery.com, in the Figma library, or decided by Kel or Hannah",
+      "proposed": "Claude default, needs founder review",
+      "pending": "Waiting on source asset"
+    }
+  },
+  "facts": {
+    "do_not_hardcode": [
+      "membership prices",
+      "bay count",
+      "hours",
+      "promo codes"
+    ],
+    "do_not_hardcode_reason": "These change. Pull from facts.md at draft time and flag for human check before posting.",
+    "descriptor_source": "golfery.com meta description, read 2026-09-21",
+    "tagline_alternates": [
+      "Where Golf Lives Better",
+      "Golf, Anytime",
+      "Respect the Game. Redefine the Experience.",
+      "The Modern Golfer's Club"
+    ],
+    "bays": {
+      "retired_names": [
+        "Meadow",
+        "The Meadow",
+        "Meadow Club"
+      ],
+      "retired_reason": "No name rights. Never use in any content. The Figma floor plan still shows it."
+    }
+  },
+  "logo": {
+    "do_not_use": [
+      {
+        "what": "Older lockups reading 'OF MARIN CA. 94901' or 'OF MARIN CA. 90401' (Sections 1 and 2, loose frames)",
+        "why": "Superseded by the MARIN CALIFORNIA descriptor. 90401 is also the wrong zip."
+      },
+      {
+        "what": "Block-G icon (G_icon 278:71, 305:2) and the arch wordmark in Logo_Marin frames",
+        "why": "Earlier concepts, replaced by the script system"
+      },
+      {
+        "what": "Badge frame 322:577",
+        "why": "Text on path misspells California as 'califonia'. Fix in Figma before any export."
+      },
+      {
+        "what": "Any layer named Generated Image, Gemini_Generated, or ChatGPT Image",
+        "why": "AI concept renders. Mood reference only, never posted."
+      },
+      {
+        "what": "Placeholder web copy in the Figma mockups: 'Where precision meets passion. Experience golf at its finest...'",
+        "why": "Off voice and uses words on the avoid list. The headline 'Beyond the course' in those same mockups is fine; it became the live tagline."
+      }
+    ],
+    "exports_needed": {
+      "path": "assets/logos",
+      "format": "SVG plus PNG at 2x, transparent background",
+      "files": [
+        "golfery-wordmark-{flagpole,green,black,white}.svg",
+        "golfery-wordmark-descriptor-{flagpole,green,black,white}.svg",
+        "golfery-symbol-{flagpole,green,black,white}.svg",
+        "golfery-badge-{flagpole,green,black,white}.svg",
+        "golfery-avatar-1080.png"
+      ],
+      "how": "In Figma, select each variant in Section 3, outline the text-on-path in the badge first, then Export. Use Cleanspace=false variants so templates control padding.",
+      "white_shortcut": "No Figma trip needed: copy each green SVG and replace fill=\"#345C2C\" with fill=\"#FFFAF7\". README has the one-line command."
+    },
+    "clearspace": {
+      "source": "Figma Grid/Cleanspace frame 322:9"
+    },
+    "figma_nodes": {
+      "wordmark": "322:52",
+      "wordmark_with_descriptor": "322:52 (Description=true)",
+      "symbol_g": "322:490",
+      "circle_badge": "322:505",
+      "icon_with_cleanspace": "322:555",
+      "descriptor_only": "322:162",
+      "signature_small": "537:619"
+    }
+  },
+  "type": {
+    "notes": [
+      "Prices are set in Playfair Display, as on the pricing page. Sim stats, dates and codes stay in IBM Plex Mono.",
+      "Eyebrows on the pricing page read as Archivo, bold, wide tracking, while the homepage uses IBM Plex Mono. Instagram uses Plex Mono. Worth unifying the site to one."
+    ],
+    "source_note": "Weights match the golfery.com font load: Playfair Display 500, 600 and 500 italic; Archivo 400 to 700; IBM Plex Mono 400, 500. Hannah's earlier font options (Montserrat, Inter, DM Sans, Merriweather, Libre Baskerville, Sohne) are retired."
+  },
+  "web_patterns": {
+    "site_section_use": "These nine sections are ready-made content pillars for the weekly plan."
+  },
+  "color": {
+    "figma_variables_found": [
+      "Brand/Flagpole White #FEEFE5",
+      "Brand/Golfery Green #345C2C"
+    ],
+    "palette_figma_variable": {
+      "flagpole_white": "Brand/Flagpole White"
+    },
+    "chalk_white_site_note": "golfery.com cards use #FFFFFF today; update the site cards to match Chalk White.",
+    "practice_round_fix": "The Practice Round page sets a purple text line on green; change it to Flagpole White."
+  },
+  "templates": {
+    "fields": {
+      "brand_story": {
+        "source": "Figma Stories 1 and 2 (322:387, 322:421)"
+      },
+      "member_spotlight": {
+        "requires": "consent flag true"
+      }
+    }
+  },
+  "_note": "Internal companion to tokens/brand-tokens.json. Holds everything removed from the public file: approvals, sources, consent, alcohol, retired bay names, Figma wiring and export state. Not served: the repo root .vercelignore excludes internal/.",
+  "_public_file": "tokens/brand-tokens.json",
+  "version": "0.6.0",
+  "removed_status_fields": {
+    "facts": "confirmed",
+    "facts.tagline": "confirmed",
+    "facts.bays": "confirmed 2026-09-21",
+    "facts.subtagline": "confirmed",
+    "color": "confirmed",
+    "color.palette.chalk_white": "proposed hex and name",
+    "color.usage_ratio": "confirmed",
+    "color.on_photo_text": "confirmed on golfery.com hero",
+    "color.surface_order": "confirmed",
+    "color.category_colors": "confirmed on golfery.com/pricing",
+    "type": "confirmed",
+    "type.scale_1080": "proposed",
+    "type.limits": "proposed",
+    "layout": "proposed",
+    "logo": "confirmed, exported to assets/logos",
+    "logo.min_size_1080_canvas": "proposed",
+    "templates": "proposed",
+    "web_patterns": "confirmed from the homepage build and pricing page screenshots",
+    "consent": "confirmed from Member Agreement 2026, section 9.2",
+    "alcohol": "confirmed 2026-09-21"
+  },
+  "removed_white_options": [
+    {
+      "hex": "#FFFFFF",
+      "label": "Pure white, what golfery.com cards use today"
+    },
+    {
+      "hex": "#FFFAF7",
+      "label": "Chalk White, proposed"
+    },
+    {
+      "hex": "#FFF7F1",
+      "label": "Warmer alternate"
+    }
+  ]
+}
