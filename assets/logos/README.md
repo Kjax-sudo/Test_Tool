@@ -67,10 +67,14 @@ with its parent Section chrome, so every file arrived with:
    box behind every logo. The spec calls for transparent, so it was removed.
 2. A stray `Section 3` frame border drawn as a `<path>` at coordinates far outside the viewBox
    (for example `M-2213 -6587 ... H9668`), which was removed.
+3. Figma's dashed purple component-set boundary marker, a `<rect>` with `stroke="#9747FF"` and
+   `stroke-dasharray="10 5"`. Its edges all sit outside the viewBox so it never rendered, but it
+   would reappear the moment anyone re-cropped or re-exported the file in a vector editor.
 
 Nothing else was touched. No path data was edited, redrawn, or re-coordinated, and there are no
-transforms in these files, so removing those two elements shifts nothing. Every remaining artwork
-path is byte-identical to the raw Figma export.
+transforms in these files, so removing those three elements shifts nothing. Every remaining
+artwork path is byte-identical to the raw Figma export, and all 12 files were rendered before and
+after the cleanup to confirm the output is pixel-identical.
 
 If you re-export by hand from the Figma UI, select the variant and use "Export selection" rather
 than exporting the Section, or you will reintroduce both artifacts.
