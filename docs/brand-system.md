@@ -281,7 +281,10 @@ Cowork should refuse or flag a draft that does any of the following, with a one-
 
 | # | Item | Owner |
 |---|---|---|
-| 1 | Export logo set from Figma Section 3 into `assets/logos/`; fix "califonia" typo on badge 322:577 first | Kel |
+| 1 | ~~Export logo set from Figma Section 3~~ Done. 16 SVGs in `assets/logos/`, exported from the node ids mapped in that folder's README. The "califonia" typo was not a blocker: it is in 322:577, an older oval badge already on the do-not-use list, not in the Circle Icon set. | Kel |
+| 1c | `golfery-badge-black.svg` is pure `#000000`, not Shade Black `#121113`. Variant `Color=Shade Black` (322:534) is mis-filled in Figma. Fix at source and re-export. | Kel |
+| 1d | The three descriptor variants export at three different native sizes (753x589, 768x603, 768x591) so they will not swap cleanly in a template. Reconcile in Figma. | Kel |
+| 1e | `golfery-avatar-1080.png` is still listed in `logo.exports_needed` but has no identified source node. Likely a crop of 322:555. Confirm which node. | Kel |
 | 1a | Pick one name: Flagpole White or Flagpole Cream | Kel |
 | 1b | Confirm bay names from Figma floor plan for `facts.md`: The National, The Peacock, The Stonetree, The Marin, The Meadow, plus PuttView | Lindsey |
 | 2 | React to Section 7 photo and video rules | Lindsey |
