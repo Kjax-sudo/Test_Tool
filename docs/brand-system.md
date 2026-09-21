@@ -44,7 +44,7 @@ Exact values live in `tokens/brand-tokens.json`. This file explains how to apply
 
 - On the web and in documents, Chalk White is the page. Flagpole White and grey sit on it as panels, green and black run as full-bleed blocks. This matches golfery.com.
 - On Instagram, green and Flagpole White still carry the frame so the feed stays warm. A frame should read as green or Flagpole White at thumbnail size. White there is for text and logo on footage.
-- **Chalk White** carries a trace of the Flagpole hue, the same way Shade Black is a near-black. golfery.com cards use pure #FFFFFF today. The Colors section of the page shows both side by side; pick one and keep site and system in step.
+- **Chalk White** carries a trace of the Flagpole hue, the same way Shade Black is a near-black rather than pure black.
 - **Category code, from the pricing page:** Flagpole White cards for golf, purple for coworking, black for drop-in, green for the featured membership. Keep the code on Instagram.
 - Purple is a highlighter. Labels, a single underlined word, a date chip. Purple text on Chalk White, Flagpole White or grey only at 56px and up. White or Flagpole White text on purple must be bold or large.
 - Banned combinations (fail contrast): purple with green, green with black, and the three light colors as text on each other. Purple shapes beside green are fine.

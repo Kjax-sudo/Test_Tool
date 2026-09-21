@@ -195,3 +195,4 @@ These public lines were edited rather than deleted. The rule itself still appear
 | Member spotlight template row | "Check the opt-out list." | `consent.opt_outs`, `templates.fields.member_spotlight.requires` |
 | Photo section intro | "With no reference post set" | `workflow.reference_imagery` |
 | Voice, sourcing rule | "Pull from `facts.md` and flag for human check" | this file |
+| Section 2, Chalk White bullet | "golfery.com cards use pure #FFFFFF today. The Colors section of the page shows both side by side; pick one and keep site and system in step." | this file, and `color.chalk_white_site_note`. The side-by-side strip was removed with `white_options`, so the sentence also described a control that no longer exists. |
