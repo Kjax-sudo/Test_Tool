@@ -22,19 +22,19 @@
   const hex = (k) => P[k].hex;
   // Push palette and families into CSS so the page chrome follows the tokens too
   const root = document.documentElement.style;
-  if (P.white) root.setProperty("--white", hex("white"));
-  root.setProperty("--green", hex("golfery_green")); root.setProperty("--cream", hex("flagpole_cream"));
+  if (P.chalk_white) root.setProperty("--white", hex("chalk_white"));
+  root.setProperty("--green", hex("golfery_green")); root.setProperty("--cream", hex("flagpole_white"));
   root.setProperty("--purple", hex("accent_purple")); root.setProperty("--black", hex("shade_black")); root.setProperty("--grey", hex("hazy_grey"));
   const F = T.type.families;
   const fam = (k) => `"${F[k].family}", ${F[k].fallback}`;
   root.setProperty("--display", fam("display")); root.setProperty("--body", fam("body")); root.setProperty("--mono", fam("label"));
 
   const lum = (h) => { const v = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((x) => x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
-  const inkOn = (h) => lum(h) > 0.4 ? hex("shade_black") : hex("flagpole_cream");
+  const inkOn = (h) => lum(h) > 0.4 ? hex("shade_black") : hex("flagpole_white");
 
   // Logo loader with an honest fallback when the SVG has not been exported yet
   const logoFile = (mark, color) => (T.logo.files && T.logo.files[mark] && T.logo.files[mark][color]) || "";
-  const TINT = { white: "white", flagpole: "flagpole_cream", green: "golfery_green", black: "shade_black" };
+  const TINT = { white: "chalk_white", flagpole: "flagpole_white", green: "golfery_green", black: "shade_black" };
   function logoImg(mark, color, missingClass) {
     const src = logoFile(mark, color);
     const img = new Image(); img.alt = "Golfery " + mark.replace(/_/g, " "); img.src = src;
@@ -62,20 +62,20 @@
   $("color-note").textContent = (T.color.surface_order ? T.color.surface_order.rule + " " : "") + "Click a swatch to copy its hex.";
 
   // Hero facts
-  [["Instagram", T.facts.handle], ["Site", T.facts.site], ["Source of truth", "brand-tokens.json v" + T.meta.version], ["Logo source", "Figma: " + T.meta.figma_source.file]]
+  [["Instagram", T.facts.handle], ["Site", T.facts.site], ["Source of truth", "brand-tokens.json v" + T.meta.version], ["Tagline", T.facts.tagline.text], ["Approvers", T.workflow.approvers.join(" or ")]]
     .forEach(([k, v]) => { const d = el("div"); d.append(el("dt", "", esc(k)), el("dd", "", esc(v))); $("hero-facts").append(d); });
 
   // Core rules: derived from tokens so they cannot drift
   [
-    "White is the page on the web. On Instagram, green and cream carry the frame and white is for text on footage. Purple is an accent, never on green.",
+    "Chalk White is the page. On Instagram, green and Flagpole White carry the frame and white is for text on footage. Purple is the accent and the coworking color, never text on green.",
     `Headlines in ${F.display.family}. Body in ${F.body.family}. Dates, scores, codes and labels in ${F.label.family}, uppercase.`,
     `Headline: ${T.type.limits.headline_max_words} words and ${T.type.limits.headline_max_lines} lines max. Nothing under ${T.type.scale_1080.min_size}px on a 1080 canvas.`,
     "The script belongs to the logo. Place the vector, never retype it, never imitate it with a script headline.",
     `Feed posts are ${T.layout.canvas.feed_portrait.ratio}. Reels, covers and Stories are ${T.layout.canvas.reel_story.ratio}. ${T.layout.margin}px margins.`,
-    "People in every shot. No empty rooms, no stock golf, no AI people.",
+    "People in four of every five posts. Clean room shots for reveals only. No AI people or renders.",
     "No em dashes. Sentence case. Zero to two emoji.",
     `Never state ${T.facts.do_not_hardcode.join(", ")} from memory. Pull from facts.md.`,
-    "Claude drafts. A person approves and posts."
+    `Claude drafts. ${T.workflow.approvers.join(" or ")} approves. Bays: ${T.facts.bays.names.join(", ")}.`
   ].forEach((r) => $("rules-list").append(el("li", "", "<span>" + esc(r) + "</span>")));
 
   // Swatches
@@ -84,6 +84,17 @@
     b.append(el("span", "", `<span class="swatch__name">${esc(title(k))}</span><span class="swatch__role" style="display:block">${esc(c.role)}</span>`), el("span", "swatch__hex", c.hex));
     b.addEventListener("click", () => copy(c.hex)); $("swatches").append(b);
   });
+  if (T.color.white_options) {
+    const strip = el("div", "white-opts");
+    T.color.white_options.forEach((o) => { const b = el("button", "white-opt"); b.type = "button"; b.style.background = o.hex; b.innerHTML = `<b>${esc(o.hex)}</b><span>${esc(o.label)}</span>`; b.addEventListener("click", () => copy(o.hex)); strip.append(b); });
+    const wrap = el("div", "white-wrap"); wrap.append(el("p", "label", "Which white? Shown on Flagpole White, as cards sit on the site"), strip); $("swatches").after(wrap);
+  }
+  if (T.color.category_colors) {
+    const cc = el("div", "cats"); const M = { golf: ["flagpole_white", "shade_black"], coworking: ["accent_purple", "flagpole_white"], drop_in: ["shade_black", "flagpole_white"], membership_featured: ["golfery_green", "flagpole_white"] };
+    Object.entries(M).forEach(([k, [bg, fg]]) => { const c = el("div", "cat", `<span class="cat__label">${esc(title(k))}</span><span class="cat__title">${k === "coworking" ? "Coworking Pack" : k === "drop_in" ? "1-Hour Bay Session" : k === "golf" ? "Golf Pack" : "Amateur Member"}</span>`); c.style.background = hex(bg); c.style.color = hex(fg); cc.append(c); });
+    const h3 = el("h3", "", "Category code"); const n = el("p", "note", esc(T.color.category_colors.rule)); n.style.marginBottom = "16px";
+    $("color-ratio").after(h3, n, cc);
+  }
   $("color-ratio").innerHTML = status(T.color.usage_ratio.status) + " " + esc(T.color.usage_ratio.rule);
 
   // Pairings
@@ -124,8 +135,8 @@
   // Logos
   $("logo-desc").textContent = T.logo.description + " Source: " + T.meta.figma_source.canonical_section;
   const tiles = [
-    ["wordmark", "green", "white"], ["wordmark", "white", "footage"], ["wordmark", "flagpole", "golfery_green"], ["wordmark_descriptor", "flagpole", "shade_black"],
-    ["symbol", "green", "flagpole_cream"], ["badge", "white", "footage"], ["badge", "flagpole", "golfery_green"], ["badge", "green", "hazy_grey"]
+    ["wordmark", "green", "chalk_white"], ["wordmark", "white", "footage"], ["wordmark", "flagpole", "golfery_green"], ["wordmark_descriptor", "flagpole", "shade_black"],
+    ["symbol", "green", "flagpole_white"], ["badge", "white", "footage"], ["badge", "flagpole", "golfery_green"], ["badge", "green", "hazy_grey"]
   ];
   const markInfo = Object.fromEntries(T.logo.marks.map((m) => [m.id, m]));
   const idFor = { wordmark: "wordmark", wordmark_descriptor: "wordmark_with_descriptor", symbol: "symbol_g", badge: "circle_badge" };
@@ -211,7 +222,7 @@
   // Markdown sections from the brand doc
   const secs = GolferyMD.sections(DOC);
   const find = (needle) => Object.keys(secs).find((k) => k.toLowerCase().includes(needle));
-  [["patterns", "patterns from golfery.com"], ["photo", "photo and video"], ["voice", "voice"], ["legal", "partner and legal"], ["refusals", "refusal list"]].forEach(([id, needle]) => {
+  [["essence", "brand essence"], ["patterns", "patterns from golfery.com"], ["photo", "photo and video"], ["voice", "voice"], ["legal", "guardrails"], ["refusals", "refusal list"]].forEach(([id, needle]) => {
     const k = find(needle); if (!k) return;
     $(id).innerHTML = GolferyMD.render(secs[k].replace(/^##\s+\d+[a-z]?\.\s+/, "## "));
   });

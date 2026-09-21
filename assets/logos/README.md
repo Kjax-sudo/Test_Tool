@@ -3,7 +3,8 @@
 Export from Figma, file "Logo and Brand - Golfery" (fileKey `5Tc4i7bgesaC5EvalUgcNQ`), Section 3.
 Use the **Cleanspace=false** variants so templates control padding. SVG, transparent background.
 
-Colors: flagpole = #FEEFE5, green = #345C2C, black = #121113 (Shade Black, not pure Black).
+Colors: flagpole = #FEEFE5 (Flagpole White), green = #345C2C, black = #121113 (Shade Black, not
+pure Black), white = #FFFAF7 (Chalk White, not pure White. See the white section below).
 
 ## Exact node map
 
@@ -36,11 +37,25 @@ cleanly in a template until they are reconciled in Figma. Worth fixing at the so
 | `golfery-symbol-green.svg` | 322:503 | Color=Golfery Green |
 | `golfery-symbol-black.svg` | 322:497 | Color=Shade Black |
 
-### White, added in 0.4.0
+### White, added in 0.4.0, recolored to Chalk White in 0.5.0
 
-White (`#FFFFFF`) became a palette color in 0.4.0: the page background on web, and the colorway
-for logo and text over footage on Instagram. These come from their own Figma variants rather than
-from recoloring the green files.
+White became a palette color in 0.4.0 as the page background on web and the colorway for logo and
+text over footage on Instagram. In 0.5.0 it changed from pure `#FFFFFF` to **Chalk White
+`#FFFAF7`**, a warmer off-white.
+
+These four files are the only ones in this folder that are not a straight export. The geometry
+comes from the real Figma `White` variants in the node table below, so the shapes are authentic.
+Chalk White has no Figma variant of its own, so the fills and strokes were then recolored from
+`white` to `#FFFAF7`. The clip-path rect inside `<defs>` is deliberately left as `white`: it is a
+mask, not a visible fill, and recoloring it would be meaningless.
+
+This is the reverse of the 0.4.0 call. There, a real `Color=White` variant existed, so exporting
+it beat recoloring. Here the target color exists nowhere in Figma, so deriving it is the only
+option. Recoloring the authentic White geometry is still better than the README's
+`sed` from the green files, because the badge ring uses `stroke` as well as `fill` and its white
+variant is keyword `white` rather than a hex, which a hex-only substitution would miss.
+
+If Chalk White is ever added as a Figma variant, re-export these four and drop this note.
 
 | File | Node | Variant |
 |---|---|---|

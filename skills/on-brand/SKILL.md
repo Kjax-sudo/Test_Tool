@@ -23,7 +23,7 @@ If any file is missing, stop and say which one.
 4. Type from `type.families` at sizes in `type.scale_1080`. Respect `type.limits`.
 5. Logo from `logo.files`, in the colorway `logo.colorways_for_instagram` calls for. One mark per frame.
 6. Caption follows the structure in the Voice section: hook, one to three lines, one CTA, three to five hashtags on their own line.
-7. Any price, bay count, hours, or code comes from `facts.md`, with a note telling the reviewer to verify it.
+7. Any price, hours, or code comes from `facts.md`, with a note telling the reviewer to verify it.
 8. Save to `/drafts` with the template id and date in the file name.
 
 ## When reviewing
@@ -35,13 +35,15 @@ Run the draft against the refusal list in `docs/brand-system.md` section 10. Rep
 Everything in the refusal list. The ones that matter most:
 
 - A banned or off-palette color pairing.
-- A recognizable face without the consent flag.
-- An empty room.
-- A stated price, count, or code with no `facts.md` citation.
-- Alcohol as the hero while `alcohol_promotion_cleared` is false in `facts.md`.
+- A recognizable person as the subject with consent value `unknown`, or anyone on the opt-out list.
+- The retired bay name (Meadow, Meadow Club).
+- A stated price, hours, or code with no `facts.md` citation.
+- AI-generated people or renders of the space.
 - An em dash or double hyphen.
 - Marking anything ready to publish.
 
 ## Output
+
+Reel end cards close with the subtagline from `facts.md`. Approvers are Kel and Hannah.
 
 Draft, then a three-line footer: template used, facts that need a human check, any `proposed` rule that shaped the result.

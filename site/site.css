@@ -1,6 +1,6 @@
 /* Golfery brand site. Page chrome only. Brand values are injected from tokens/brand-tokens.json by app.js */
 :root {
-  --white: #FFFFFF;
+  --white: #FFFAF7;
   --green: #345C2C;
   --cream: #FEEFE5;
   --purple: #7A76AE;
@@ -97,6 +97,17 @@ h3 { font: 700 17px/1.3 var(--body); margin: 36px 0 12px; }
 .swatch__role { font-size: 13px; line-height: 1.4; opacity: 0.85; margin-top: 6px; }
 .swatch__hex { font: 500 13px/1 var(--mono); letter-spacing: 0.06em; }
 .swatch:hover .swatch__hex { text-decoration: underline; }
+
+.white-wrap { margin-top: 28px; padding: 24px; background: var(--cream); }
+.white-wrap .label { margin-bottom: 14px; }
+.white-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.white-opt { all: unset; cursor: pointer; box-sizing: border-box; border-radius: 24px; padding: 28px 22px; min-height: 120px; display: flex; flex-direction: column; justify-content: flex-end; box-shadow: 0 1px 0 rgb(18 17 19 / 0.06); }
+.white-opt b { font: 500 14px var(--mono); letter-spacing: 0.06em; }
+.white-opt span { font-size: 13px; color: rgb(18 17 19 / 0.7); margin-top: 4px; }
+.cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.cat { border-radius: 24px; padding: 56px 22px 22px; display: flex; flex-direction: column; gap: 6px; }
+.cat__label { font: 500 11px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.8; }
+.cat__title { font: 600 22px/1.15 var(--display); }
 
 /* Pairings */
 .pairs { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
