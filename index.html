@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Golfery Brand System</title>
+  <meta name="description" content="Colors, type, logos, Instagram templates, photo rules and voice for The Golfery. Built for the team and for Claude.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site/site.css">
+</head>
+<body>
+<div class="app">
+
+  <nav class="nav" id="nav" aria-label="Contents">
+    <a class="nav__brand" href="#top">
+      <span class="nav__logo" id="nav-logo"></span>
+      <span class="nav__sub">Brand system</span>
+    </a>
+    <div class="nav__scroll">
+      <p class="nav__group">Docs</p>
+      <a class="nav__item" href="AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>
+      <a class="nav__item" href="docs/brand-system.md" target="_blank" rel="noopener">brand-system.md</a>
+      <a class="nav__item" href="tokens/brand-tokens.json" target="_blank" rel="noopener">brand-tokens.json</a>
+      <a class="nav__item" href="facts.md" target="_blank" rel="noopener">facts.md</a>
+      <a class="nav__item" id="nav-github" href="#" target="_blank" rel="noopener" hidden>GitHub</a>
+
+      <p class="nav__group">Foundations</p>
+      <a class="nav__item" href="#rules">Core rules</a>
+      <a class="nav__item" href="#colors">Colors</a>
+      <a class="nav__item" href="#pairings">Pairings</a>
+      <a class="nav__item" href="#typography">Typography</a>
+      <a class="nav__item" href="#logos">Logos</a>
+      <a class="nav__item" href="#layout">Canvas and safe zones</a>
+
+      <p class="nav__group">Instagram</p>
+      <a class="nav__item" href="#templates">Templates</a>
+      <a class="nav__item" href="#photo">Photo and video</a>
+      <a class="nav__item" href="#voice">Voice</a>
+
+      <p class="nav__group">Guardrails</p>
+      <a class="nav__item" href="#legal">Partner and legal</a>
+      <a class="nav__item" href="#refusals">Refusal list</a>
+      <a class="nav__item" href="#open">Open items</a>
+    </div>
+    <p class="nav__foot" id="nav-version"></p>
+  </nav>
+
+  <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" id="nav-toggle">Contents</button>
+
+  <main class="main" id="top">
+
+    <header class="hero">
+      <div class="hero__text">
+        <p class="eyebrow">647 Irwin Street, San Rafael</p>
+        <h1>The Golfery brand system</h1>
+        <p class="hero__lede">Everything needed to make an Instagram post that looks and sounds like us: the real colors, type, logo files, post templates, footage rules and voice. The page renders from the same two files Claude reads, so what you see here is what it builds with.</p>
+        <dl class="hero__facts" id="hero-facts"></dl>
+      </div>
+      <div class="hero__frame" id="hero-frame" aria-label="Example event announcement post"></div>
+    </header>
+
+    <section class="section" id="rules">
+      <h2>Core rules</h2>
+      <ol class="rules" id="rules-list"></ol>
+    </section>
+
+    <section class="section" id="colors">
+      <div class="section__head">
+        <h2>Colors</h2>
+        <p class="note">Five colors. Green and cream carry the brand, purple is a highlighter. Click a swatch to copy its hex.</p>
+      </div>
+      <div class="swatches" id="swatches"></div>
+      <p class="note" id="color-ratio"></p>
+    </section>
+
+    <section class="section" id="pairings">
+      <div class="section__head">
+        <h2>Pairings</h2>
+        <p class="note">Text on background, with the measured contrast ratio. Anything not listed as approved is off limits.</p>
+      </div>
+      <h3>Approved</h3>
+      <div class="pairs" id="pairs-ok"></div>
+      <h3>Banned</h3>
+      <div class="pairs" id="pairs-no"></div>
+      <p class="note" id="on-photo"></p>
+    </section>
+
+    <section class="section" id="typography">
+      <div class="section__head">
+        <h2>Typography</h2>
+        <p class="note">Three families, each with one job. Sizes are pixels on a 1080 wide Instagram canvas; a phone shows them at about a third of that.</p>
+      </div>
+      <div class="families" id="families"></div>
+      <h3>Scale on a 1080 canvas</h3>
+      <div class="scale" id="type-scale"></div>
+      <ul class="limits" id="type-limits"></ul>
+    </section>
+
+    <section class="section" id="logos">
+      <div class="section__head">
+        <h2>Logos</h2>
+        <p class="note" id="logo-desc"></p>
+      </div>
+      <div class="logo-grid" id="logo-grid"></div>
+      <div class="two-col">
+        <div>
+          <h3>Rules</h3>
+          <ul class="plain" id="logo-rules"></ul>
+        </div>
+        <div>
+          <h3>Do not use</h3>
+          <ul class="plain plain--no" id="logo-dont"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="layout">
+      <div class="section__head">
+        <h2>Canvas and safe zones</h2>
+        <p class="note" id="layout-note"></p>
+      </div>
+      <div class="canvases" id="canvases"></div>
+    </section>
+
+    <section class="section" id="templates">
+      <div class="section__head">
+        <h2>Templates</h2>
+        <p class="note">Every designed post starts from one of these. They are drawn live from the tokens at true Instagram proportions. Dark blocks stand in for your footage.</p>
+        <label class="switch"><input type="checkbox" id="toggle-safe"> Show safe zones and margins</label>
+      </div>
+      <div class="templates" id="template-grid"></div>
+    </section>
+
+    <section class="section md" id="photo"></section>
+    <section class="section md" id="voice"></section>
+    <section class="section md" id="legal"></section>
+    <section class="section md" id="refusals"></section>
+    <section class="section md" id="open"></section>
+
+    <footer class="foot">
+      <p>Edit <code>tokens/brand-tokens.json</code> or <code>docs/brand-system.md</code> in GitHub. Vercel redeploys this page on every push.</p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="site/config.js"></script>
+<script src="site/md.js"></script>
+<script src="site/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+{
+  "meta": {
+    "brand": "The Golfery",
+    "version": "0.3.0",
+    "updated": "2026-09-21",
+    "status_key": {
+      "confirmed": "Already in use on golfery.com or stated by founders",
+      "proposed": "Claude default, needs founder review",
+      "pending": "Waiting on source asset"
+    },
+    "rule": "This file is the single source of truth. docs/brand-system.md, the /on-brand skill, and the hosted brand page all read from here. Edit here first.",
+    "figma_source": {
+      "file": "Logo and Brand - Golfery",
+      "fileKey": "5Tc4i7bgesaC5EvalUgcNQ",
+      "page": "Brand and Logo Library (278:43)",
+      "canonical_section": "Section 3 (322:1156). Everything outside Sections 3 and 4 is exploration and must not be used."
+    }
+  },
+  "facts": {
+    "status": "confirmed",
+    "name_full": "The Golfery",
+    "name_short": "Golfery",
+    "handle": "@golfery.marin",
+    "site": "golfery.com",
+    "email": "hello@golfery.com",
+    "address": "647 Irwin Street, San Rafael, CA 94901",
+    "descriptor": "Marin's first dedicated indoor golf simulator venue",
+    "do_not_hardcode": [
+      "membership prices",
+      "bay count",
+      "hours",
+      "promo codes"
+    ],
+    "do_not_hardcode_reason": "These change. Pull from facts.md at draft time and flag for human check before posting.",
+    "bays_from_figma_floorplan": {
+      "status": "proposed, confirm with Lindsey",
+      "names": [
+        "The National (premier bay)",
+        "The Peacock",
+        "The Stonetree",
+        "The Marin",
+        "The Meadow"
+      ],
+      "other_zones": [
+        "PuttView",
+        "Media Lounge",
+        "Coworking Lounge",
+        "Conference room",
+        "Private bookable rooms",
+        "Food & Beverage Station"
+      ]
+    }
+  },
+  "color": {
+    "status": "confirmed",
+    "palette": {
+      "golfery_green": {
+        "hex": "#345C2C",
+        "role": "Primary. Backgrounds, headlines on light, logo."
+      },
+      "flagpole_cream": {
+        "hex": "#FEEFE5",
+        "role": "Primary light. Backgrounds, text on green or black.",
+        "figma_name": "Brand/Flagpole White",
+        "note": "Figma calls this Flagpole White. Same hex. Pick one name; this file uses flagpole_cream until told otherwise."
+      },
+      "accent_purple": {
+        "hex": "#7A76AE",
+        "role": "Accent only. Labels, highlights, one element per frame."
+      },
+      "shade_black": {
+        "hex": "#121113",
+        "role": "Dark backgrounds, body text on light."
+      },
+      "hazy_grey": {
+        "hex": "#EDEAE4",
+        "role": "Secondary light background, cards, dividers."
+      }
+    },
+    "pairings_approved": [
+      {
+        "text": "flagpole_cream",
+        "bg": "golfery_green",
+        "contrast": 6.89,
+        "use": "any text size"
+      },
+      {
+        "text": "golfery_green",
+        "bg": "flagpole_cream",
+        "contrast": 6.89,
+        "use": "any text size"
+      },
+      {
+        "text": "golfery_green",
+        "bg": "hazy_grey",
+        "contrast": 6.45,
+        "use": "any text size"
+      },
+      {
+        "text": "hazy_grey",
+        "bg": "golfery_green",
+        "contrast": 6.45,
+        "use": "any text size"
+      },
+      {
+        "text": "flagpole_cream",
+        "bg": "shade_black",
+        "contrast": 16.76,
+        "use": "any text size"
+      },
+      {
+        "text": "shade_black",
+        "bg": "flagpole_cream",
+        "contrast": 16.76,
+        "use": "any text size"
+      },
+      {
+        "text": "shade_black",
+        "bg": "hazy_grey",
+        "contrast": 15.68,
+        "use": "any text size"
+      },
+      {
+        "text": "accent_purple",
+        "bg": "shade_black",
+        "contrast": 4.51,
+        "use": "any text size"
+      },
+      {
+        "text": "accent_purple",
+        "bg": "flagpole_cream",
+        "contrast": 3.72,
+        "use": "large text and labels only, 56px and up"
+      },
+      {
+        "text": "accent_purple",
+        "bg": "hazy_grey",
+        "contrast": 3.48,
+        "use": "large text and labels only, 56px and up"
+      }
+    ],
+    "pairings_banned": [
+      {
+        "a": "accent_purple",
+        "b": "golfery_green",
+        "contrast": 1.85,
+        "reason": "Unreadable"
+      },
+      {
+        "a": "golfery_green",
+        "b": "shade_black",
+        "contrast": 2.43,
+        "reason": "Unreadable"
+      },
+      {
+        "a": "flagpole_cream",
+        "b": "hazy_grey",
+        "contrast": 1.07,
+        "reason": "No separation. Fine as adjacent surfaces, never as text on background."
+      }
+    ],
+    "usage_ratio": {
+      "status": "proposed",
+      "rule": "Per frame: about 60 percent green or cream, 30 percent the other, 10 percent or less purple. Black is for dark-mode variants and Reel caption bars."
+    },
+    "on_photo_text": {
+      "status": "proposed",
+      "rule": "Text over photo or video uses flagpole_cream on a shade_black gradient scrim, 0 to 60 percent opacity, bottom up. Never place green or purple text directly on footage."
+    },
+    "figma_variables_found": [
+      "Brand/Flagpole White #FEEFE5",
+      "Brand/Golfery Green #345C2C"
+    ]
+  },
+  "type": {
+    "status": "confirmed",
+    "families": {
+      "display": {
+        "family": "Playfair Display",
+        "fallback": "Georgia, serif",
+        "weights": [
+          400,
+          700
+        ],
+        "italic": true,
+        "role": "Headlines"
+      },
+      "body": {
+        "family": "Archivo",
+        "fallback": "Helvetica, Arial, sans-serif",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "role": "Body, subheads, buttons"
+      },
+      "label": {
+        "family": "IBM Plex Mono",
+        "fallback": "Menlo, monospace",
+        "weights": [
+          400,
+          500
+        ],
+        "role": "Eyebrows, dates, scores, stats, labels",
+        "transform": "uppercase",
+        "tracking_em": 0.12
+      }
+    },
+    "scale_1080": {
+      "status": "proposed",
+      "note": "Pixel sizes on a 1080px wide canvas. A phone renders this at roughly one third scale, so 36px is the legibility floor.",
+      "headline_xl": {
+        "family": "display",
+        "size": 128,
+        "line_height": 1.0,
+        "weight": 700
+      },
+      "headline_l": {
+        "family": "display",
+        "size": 96,
+        "line_height": 1.05,
+        "weight": 700
+      },
+      "headline_m": {
+        "family": "display",
+        "size": 72,
+        "line_height": 1.1,
+        "weight": 700
+      },
+      "subhead": {
+        "family": "body",
+        "size": 52,
+        "line_height": 1.2,
+        "weight": 500
+      },
+      "body": {
+        "family": "body",
+        "size": 40,
+        "line_height": 1.35,
+        "weight": 400
+      },
+      "label": {
+        "family": "label",
+        "size": 30,
+        "line_height": 1.2,
+        "weight": 500
+      },
+      "stat": {
+        "family": "label",
+        "size": 112,
+        "line_height": 1.0,
+        "weight": 500
+      },
+      "min_size": 36
+    },
+    "limits": {
+      "status": "proposed",
+      "headline_max_words": 7,
+      "headline_max_lines": 3,
+      "body_max_words_per_slide": 35,
+      "families_per_frame": 3,
+      "sizes_per_frame": 3
+    }
+  },
+  "layout": {
+    "status": "proposed",
+    "note": "Instagram moves its UI chrome often. Verify safe zones against the live app each quarter.",
+    "canvas": {
+      "feed_portrait": {
+        "w": 1080,
+        "h": 1350,
+        "ratio": "4:5",
+        "use": "Default for all feed posts and carousels"
+      },
+      "reel_story": {
+        "w": 1080,
+        "h": 1920,
+        "ratio": "9:16",
+        "use": "Reels, Reel covers, Stories"
+      },
+      "feed_square": {
+        "w": 1080,
+        "h": 1080,
+        "ratio": "1:1",
+        "use": "Avoid. Only for cross-posting needs."
+      }
+    },
+    "margin": 72,
+    "grid_unit": 12,
+    "safe_zone_reel_story": {
+      "top": 250,
+      "bottom": 420,
+      "left": 72,
+      "right": 120
+    },
+    "grid_crop": {
+      "rule": "Profile grid shows a 3:4 center crop. Keep headline and logo inside the center 1080x1440 of a Reel cover, and inside the center 1012px width of a 4:5 post."
+    },
+    "corner_radius": 24,
+    "logo_clearspace": "Height of the G in the wordmark on all sides"
+  },
+  "logo": {
+    "status": "confirmed from Figma, exports pending",
+    "description": "Hand-lettered script wordmark 'Golfery' with an underline swash that ends in a club head. Optional descriptor lockup below it.",
+    "marks": [
+      {
+        "id": "wordmark",
+        "figma_node": "322:52",
+        "component": "Logo",
+        "variant_props": {
+          "bg is": [
+            "Dark",
+            "Light"
+          ],
+          "Color Logo": [
+            "White",
+            "Black",
+            "Flagpole White",
+            "Shade Black",
+            "Hazy Grey",
+            "Accent purple",
+            "Golfery Green"
+          ],
+          "Cleanspace": [
+            true,
+            false
+          ],
+          "Description": [
+            true,
+            false
+          ]
+        },
+        "native_size": "727x440",
+        "use": "Primary mark. Default for covers, end cards, announcements."
+      },
+      {
+        "id": "wordmark_with_descriptor",
+        "figma_node": "322:52 (Description=true)",
+        "descriptor_text": "SIMULATOR LOUNGE / MARIN CALIFORNIA",
+        "use": "First-touch contexts only: ads, partner posts, anything a non-follower sees first."
+      },
+      {
+        "id": "symbol_g",
+        "figma_node": "322:490",
+        "component": "Symbol",
+        "native_size": "256x479",
+        "use": "Small spaces: Story header chip, watermark-size credits, favicon."
+      },
+      {
+        "id": "circle_badge",
+        "figma_node": "322:505",
+        "component": "Circle Icon",
+        "text_on_path": "SIMULATOR LOUNGE · MARIN CALIFORNIA",
+        "native_size": "375x369",
+        "use": "Story hero over footage, merch, stickers, profile avatar candidate."
+      },
+      {
+        "id": "icon_with_cleanspace",
+        "figma_node": "322:555",
+        "native_size": "343x344",
+        "use": "Avatar and app-icon style crops."
+      },
+      {
+        "id": "descriptor_only",
+        "figma_node": "322:162",
+        "use": "Rare. Pair with symbol when the wordmark will not fit."
+      },
+      {
+        "id": "signature_small",
+        "figma_node": "537:619",
+        "native_size": "255x155",
+        "use": "Minimum-size version of the wordmark."
+      }
+    ],
+    "colorways_for_instagram": {
+      "on_green": "Flagpole White",
+      "on_black_or_footage": "Flagpole White",
+      "on_cream_or_grey": "Golfery Green (default) or Shade Black",
+      "purple": "Exists in Figma. Restrict to merch and one-off accents. Never on green.",
+      "pure_white_and_pure_black": "Exist in Figma. Avoid on Instagram; use Flagpole White and Shade Black so the feed stays warm."
+    },
+    "clearspace": {
+      "source": "Figma Grid/Cleanspace frame 322:9",
+      "rule": "Wordmark 727x440 sits in a 935x612 box: about 14 percent of logo width on left and right, about 20 percent of logo height on top and bottom. Nothing enters that box."
+    },
+    "min_size_1080_canvas": {
+      "wordmark_width_px": 220,
+      "symbol_height_px": 96,
+      "circle_badge_width_px": 240,
+      "status": "proposed"
+    },
+    "exports_needed": {
+      "path": "assets/logos",
+      "format": "SVG plus PNG at 2x, transparent background",
+      "files": [
+        "golfery-wordmark-{flagpole,green,black}.svg",
+        "golfery-wordmark-descriptor-{flagpole,green,black}.svg",
+        "golfery-symbol-{flagpole,green,black}.svg",
+        "golfery-badge-{flagpole,green,black}.svg",
+        "golfery-avatar-1080.png"
+      ],
+      "how": "In Figma, select each variant in Section 3, outline the text-on-path in the badge first, then Export. Use Cleanspace=false variants so templates control padding."
+    },
+    "rules": [
+      "One mark per frame",
+      "Wordmark max 60 percent of canvas width as a hero, max 20 percent as a sign-off",
+      "Sign-off placement: bottom center or bottom left inside the 72px margin",
+      "Never retype the wordmark in a font. It is lettering, always use the vector.",
+      "Never set headlines in a script face to imitate the logo",
+      "No shadows, outlines, gradients, rotation, stretching, or off-palette recolors",
+      "Carousel: first and last slide only. Reels: cover and end card only. No persistent watermark."
+    ],
+    "do_not_use": [
+      {
+        "what": "Older lockups reading 'OF MARIN CA. 94901' or 'OF MARIN CA. 90401' (Sections 1 and 2, loose frames)",
+        "why": "Superseded by the MARIN CALIFORNIA descriptor. 90401 is also the wrong zip."
+      },
+      {
+        "what": "Block-G icon (G_icon 278:71, 305:2) and the arch wordmark in Logo_Marin frames",
+        "why": "Earlier concepts, replaced by the script system"
+      },
+      {
+        "what": "Badge frame 322:577",
+        "why": "Text on path misspells California as 'califonia'. Fix in Figma before any export."
+      },
+      {
+        "what": "Any layer named Generated Image, Gemini_Generated, or ChatGPT Image",
+        "why": "AI concept renders. Mood reference only, never posted."
+      },
+      {
+        "what": "Placeholder web copy: 'Where precision meets passion...' and 'Beyond the Course'",
+        "why": "Off voice and references an outdoor course"
+      }
+    ],
+    "files": {
+      "wordmark": {
+        "flagpole": "assets/logos/golfery-wordmark-flagpole.svg",
+        "green": "assets/logos/golfery-wordmark-green.svg",
+        "black": "assets/logos/golfery-wordmark-black.svg"
+      },
+      "wordmark_descriptor": {
+        "flagpole": "assets/logos/golfery-wordmark-descriptor-flagpole.svg",
+        "green": "assets/logos/golfery-wordmark-descriptor-green.svg",
+        "black": "assets/logos/golfery-wordmark-descriptor-black.svg"
+      },
+      "symbol": {
+        "flagpole": "assets/logos/golfery-symbol-flagpole.svg",
+        "green": "assets/logos/golfery-symbol-green.svg",
+        "black": "assets/logos/golfery-symbol-black.svg"
+      },
+      "badge": {
+        "flagpole": "assets/logos/golfery-badge-flagpole.svg",
+        "green": "assets/logos/golfery-badge-green.svg",
+        "black": "assets/logos/golfery-badge-black.svg"
+      }
+    }
+  },
+  "templates": {
+    "status": "proposed",
+    "list": [
+      {
+        "id": "brand_story",
+        "canvas": "reel_story",
+        "source": "Figma Stories 1 and 2 (322:387, 322:421)",
+        "bg": "full-bleed footage, slightly darkened",
+        "elements": [
+          "symbol chip + 'Golfery' top left",
+          "hero mark centered: wordmark with descriptor, or circle badge",
+          "translucent CTA bar near bottom, Archivo uppercase, e.g. BOOK NOW"
+        ],
+        "note": "Already designed. This is the house look for Stories: footage first, one mark, one CTA."
+      },
+      {
+        "id": "reel_cover",
+        "canvas": "reel_story",
+        "bg": "footage + scrim",
+        "elements": [
+          "label",
+          "headline_l",
+          "logo"
+        ]
+      },
+      {
+        "id": "event_announce",
+        "canvas": "feed_portrait",
+        "bg": "golfery_green",
+        "elements": [
+          "label (date)",
+          "headline_xl",
+          "subhead",
+          "body (details)",
+          "logo"
+        ]
+      },
+      {
+        "id": "league_standings",
+        "canvas": "feed_portrait",
+        "bg": "shade_black",
+        "elements": [
+          "label (week)",
+          "headline_m",
+          "stat rows in label family",
+          "logo"
+        ]
+      },
+      {
+        "id": "member_spotlight",
+        "canvas": "feed_portrait",
+        "bg": "photo top 60 percent, flagpole_cream bottom",
+        "elements": [
+          "label",
+          "headline_m (name)",
+          "body (quote)"
+        ],
+        "requires": "consent flag true"
+      },
+      {
+        "id": "promo_offer",
+        "canvas": "feed_portrait",
+        "bg": "flagpole_cream",
+        "elements": [
+          "label",
+          "headline_xl (offer)",
+          "body (terms)",
+          "label (code)",
+          "logo"
+        ]
+      },
+      {
+        "id": "tip_carousel",
+        "canvas": "feed_portrait",
+        "slides": "5 to 8",
+        "pattern": "slide 1 hook on green, middle slides cream with one idea each, last slide CTA on green"
+      },
+      {
+        "id": "story_frame",
+        "canvas": "reel_story",
+        "bg": "footage or hazy_grey",
+        "elements": [
+          "label",
+          "headline_m",
+          "native IG sticker zone left clear"
+        ]
+      },
+      {
+        "id": "quote_card",
+        "canvas": "feed_portrait",
+        "bg": "hazy_grey",
+        "elements": [
+          "headline_l italic",
+          "label (attribution)"
+        ]
+      }
+    ]
+  }
+}
