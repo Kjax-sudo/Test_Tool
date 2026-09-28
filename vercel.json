@@ -1,7 +1,11 @@
 {
   "cleanUrls": true,
+  "buildCommand": "node scripts/bayclub-photos-manifest.mjs",
+  "outputDirectory": ".",
   "headers": [
     { "source": "/(tokens|docs)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] },
-    { "source": "/(.*)\\.md", "headers": [{ "key": "Content-Type", "value": "text/markdown; charset=utf-8" }, { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] }
+    { "source": "/(.*)\\.md", "headers": [{ "key": "Content-Type", "value": "text/markdown; charset=utf-8" }, { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] },
+    { "source": "/partners/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] },
+    { "source": "/assets/partners/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }, { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] }
   ]
 }
