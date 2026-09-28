@@ -54,9 +54,9 @@ All memberships include access to member-only events, leagues, and discounts.
 
 | Code | Offer | Partner | Starts | Expires |
 |---|---|---|---|---|
-| BAYCLUB20 | One free simulator session for first-time guests, or the first punch free on a 5-punch pass. Plus 20% off any new membership. Bay Club members only. Code applied at booking under "Apply Promo Code". Not combinable with other offers. Subject to availability. | Bay Club | 2026-10-01 | 2026-10-30 |
+| BayClub20 | First session free for new guests (first punch on a 5-session pass) + 20% off membership, first month | Bay Club | 2026-10-01 | 2026-12-31 |
 
-Source for BAYCLUB20: the Bay Club flyers in `assets/partners/bayclub/photos`, with dates confirmed 2026-09-28.
+Source for BayClub20: final offer terms and dates confirmed 2026-09-28.
 
 ## Media opt-out list
 
