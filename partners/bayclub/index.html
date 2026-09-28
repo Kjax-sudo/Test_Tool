@@ -113,9 +113,9 @@
     .rules li { margin: 4px 0; }
 
     /* Photos */
-    .photos { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+    .photos { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
     .photo { margin: 0; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--grey); display: flex; flex-direction: column; }
-    .photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--grey); }
+    .photo img { display: block; width: 100%; height: auto; background: var(--grey); }
     .photo figcaption { background: var(--white); padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; }
     .photo__name { font: 500 12px/1.4 var(--mono); letter-spacing: 0.04em; word-break: break-all; color: var(--black); }
     .empty { padding: 32px 24px; border: 1px dashed var(--rule); border-radius: var(--radius); color: var(--muted); text-align: center; }
