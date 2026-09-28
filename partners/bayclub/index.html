@@ -133,6 +133,11 @@
     .block__flag { margin: 12px 0 0; font: 500 11px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); }
     .copied { background: var(--black) !important; border-color: var(--black) !important; color: var(--white) !important; }
 
+    .contact { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; }
+    .contact__line { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font: 500 12px/1.4 var(--mono); letter-spacing: 0.12em; color: var(--green); }
+    .contact__name { text-transform: uppercase; }
+    .contact__email { font-size: 14px; letter-spacing: 0.04em; overflow-wrap: anywhere; }
+
     footer { padding: 40px 0 56px; color: var(--muted); font-size: 15px; }
     footer p { margin: 4px 0; }
 
@@ -149,11 +154,12 @@
     <img class="top__logo" src="/assets/partners/bayclub/logos/golfery-wordmark-descriptor-green.svg" alt="The Golfery, simulator lounge, Marin California" width="768" height="604">
     <p class="eyebrow">Partner kit · Bay Club</p>
     <h1>Everything you need to feature <em>The Golfery</em></h1>
-    <p class="lede">Logos, photos, and ready-to-paste offer copy for Bay Club's marketing team. Download what you need, and write to <a href="mailto:hello@golfery.com">hello@golfery.com</a> with anything we missed.</p>
+    <p class="lede">Logos, photos, and ready-to-paste offer copy for Bay Club's marketing team. Download what you need, and reach out to <a href="mailto:lindsey@golfery.com">Lindsey</a>, our General Manager, with anything we missed.</p>
     <ul class="jump">
       <li><a href="#logos">Logos</a></li>
       <li><a href="#photos">Photos</a></li>
       <li><a href="#offer">Offer copy</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -212,12 +218,32 @@
       <div class="blocks" id="copy-blocks" aria-live="polite"></div>
     </div>
   </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">04 · Contact</p>
+          <h2>Your point of contact</h2>
+          <p class="note">Lindsey, our General Manager, is your direct line for anything related to this partnership. She can help Bay Club members with questions, bookings, and their visit, and she is the right person if anything in the promotion needs a change or an update. Whether it comes from a member or your team, reach out and we will take care of it.</p>
+        </div>
+      </div>
+      <div class="block contact">
+        <p class="contact__line">
+          <span class="contact__name">Lindsey, General Manager</span>
+          <span aria-hidden="true">·</span>
+          <a class="contact__email" href="mailto:lindsey@golfery.com">lindsey@golfery.com</a>
+        </p>
+        <button class="btn btn--ghost" type="button" id="copy-email" data-copy="lindsey@golfery.com" aria-label="Copy Lindsey's email address">Copy email</button>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="wrap">
     <p>The Golfery · 647 Irwin Street, San Rafael, CA 94901</p>
-    <p><a href="https://www.golfery.com" target="_blank" rel="noopener">golfery.com</a> · <a href="mailto:hello@golfery.com">hello@golfery.com</a> · <a href="https://www.instagram.com/golfery.marin/" target="_blank" rel="noopener">@golfery.marin</a></p>
+    <p><a href="https://www.golfery.com" target="_blank" rel="noopener">golfery.com</a> · <a href="mailto:lindsey@golfery.com">lindsey@golfery.com</a> · <a href="https://www.instagram.com/golfery.marin/" target="_blank" rel="noopener">@golfery.marin</a></p>
   </div>
 </footer>
 
@@ -342,6 +368,15 @@
     });
   }
 
+  var emailBtn = document.getElementById("copy-email");
+  emailBtn.addEventListener("click", function () {
+    copyText(emailBtn.getAttribute("data-copy")).then(function () {
+      emailBtn.textContent = "Copied";
+      emailBtn.classList.add("copied");
+      setTimeout(function () { emailBtn.textContent = "Copy email"; emailBtn.classList.remove("copied"); }, 1800);
+    }, function () { emailBtn.textContent = "Select and copy"; });
+  });
+
   fetch(BASE + "copy.md", { cache: "no-store" })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
     .then(function (md) {
@@ -375,7 +410,7 @@
       });
     })
     .catch(function () {
-      blocksEl.innerHTML = '<p class="empty">Offer copy is on the way. Write to <a href="mailto:hello@golfery.com">hello@golfery.com</a> if you need it sooner.</p>';
+      blocksEl.innerHTML = '<p class="empty">Offer copy is on the way. Reach out to Lindsey at <a href="mailto:lindsey@golfery.com">lindsey@golfery.com</a> if you need it sooner.</p>';
     });
 })();
 </script>
