@@ -14,16 +14,16 @@ partnership is exclusive.
 
 ## Short description
 
-The Golfery is Marin's social sports club in San Rafael, with five premium simulator bays, a PuttView green, and a coworking lounge. Bay Club members get TO FILL (offer) with code BAYCLUB30.
+The Golfery is Marin's social sports club in San Rafael, with five premium simulator bays, a PuttView green, and a coworking lounge. Bay Club members get TO FILL (offer) with code BAYCLUB20.
 
 ## Code
 
-BAYCLUB30
+BAYCLUB20
 
 ## How to redeem
 
 1. Book a bay at app.whoosh.io/patron/club/the-golfery
-2. Enter code BAYCLUB30 TO FILL (where the code goes, for example at checkout)
+2. Enter code BAYCLUB20 TO FILL (where the code goes, for example at checkout)
 
 ## Small print
 

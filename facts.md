@@ -54,7 +54,7 @@ All memberships include access to member-only events, leagues, and discounts.
 
 | Code | Offer | Partner | Starts | Expires |
 |---|---|---|---|---|
-| BAYCLUB30 | TO FILL | Bay Club | TO FILL | TO FILL |
+| BAYCLUB20 | TO FILL | Bay Club | TO FILL | TO FILL |
 
 ## Media opt-out list
 
