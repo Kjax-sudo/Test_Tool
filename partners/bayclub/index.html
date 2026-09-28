@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Golfery × Bay Club partner kit</title>
+  <meta name="description" content="Logos, photos, and offer copy for Bay Club's marketing team.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <style>
+    /* Values from tokens/brand-tokens.json 0.5.0 */
+    :root {
+      --white: #FFFAF7;   /* chalk_white */
+      --green: #345C2C;   /* golfery_green */
+      --cream: #FEEFE5;   /* flagpole_white */
+      --purple: #7A76AE;  /* accent_purple */
+      --black: #121113;   /* shade_black */
+      --grey: #EDEAE4;    /* hazy_grey */
+      --rule: rgb(52 92 44 / 0.2);
+      --muted: rgb(18 17 19 / 0.72);
+      --display: "Playfair Display", Georgia, serif;
+      --body: "Archivo", Helvetica, Arial, sans-serif;
+      --mono: "IBM Plex Mono", Menlo, monospace;
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--black);
+      font: 400 16px/1.55 var(--body);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--green); text-underline-offset: 3px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
+    img { max-width: 100%; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+    @media (min-width: 720px) { .wrap { padding: 0 40px; } }
+
+    h1, h2 { font-family: var(--display); font-weight: 600; color: var(--green); margin: 0; }
+    h1 { font-size: clamp(36px, 7vw, 60px); line-height: 1.04; letter-spacing: -0.01em; }
+    h1 em { font-style: italic; font-weight: 500; }
+    h2 { font-size: clamp(28px, 4.5vw, 36px); line-height: 1.1; }
+    h3 { font: 600 17px/1.3 var(--body); margin: 0; color: var(--black); }
+    .eyebrow {
+      font: 500 12px/1.2 var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin: 0 0 14px;
+    }
+    .lede { font-size: 18px; color: var(--muted); max-width: 60ch; margin: 18px 0 0; }
+    .note { color: var(--muted); max-width: 66ch; margin: 10px 0 0; }
+
+    /* Header */
+    .top { padding: 32px 0 48px; border-bottom: 1px solid var(--rule); }
+    .top__logo { display: block; width: 180px; height: auto; margin-bottom: 40px; }
+    @media (min-width: 720px) { .top { padding: 48px 0 64px; } .top__logo { width: 220px; } }
+    .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; }
+    .jump a {
+      display: inline-block; padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px;
+      font: 500 12px/1.2 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+    }
+    .jump a:hover { background: var(--cream); }
+
+    section { padding: 56px 0; border-bottom: 1px solid var(--rule); }
+    @media (min-width: 720px) { section { padding: 72px 0; } }
+    .section__head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 24px; margin-bottom: 28px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 10px 18px;
+      border: 1px solid var(--green); border-radius: 999px;
+      background: var(--green); color: var(--white);
+      font: 600 14px/1.2 var(--body); text-decoration: none; cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { background: #2A4B24; }
+    .btn--ghost { background: transparent; color: var(--green); }
+    .btn--ghost:hover { background: var(--cream); }
+    .btn[disabled] { cursor: not-allowed; background: var(--grey); border-color: var(--grey); color: var(--muted); }
+    .btn svg { width: 16px; height: 16px; flex: none; }
+    .btn__meta { font: 500 11px/1 var(--mono); letter-spacing: 0.08em; opacity: 0.8; }
+
+    /* Logos */
+    .grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .card { border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--white); display: flex; flex-direction: column; }
+    .card--wide { grid-column: 1 / -1; }
+    .stage { display: grid; place-items: center; padding: 40px 24px; min-height: 220px; }
+    .stage img { display: block; width: 100%; height: auto; max-width: 300px; max-height: 200px; object-fit: contain; }
+    .card--wide .stage { min-height: 280px; }
+    .card--wide .stage img { max-width: 380px; max-height: 260px; }
+    .stage--badge img { max-width: 170px; }
+    .stage--chalk { background: var(--white); border-bottom: 1px solid var(--rule); }
+    .stage--cream { background: var(--cream); }
+    .stage--grey { background: var(--grey); }
+    .stage--green { background: var(--green); }
+    .stage--black { background: var(--black); }
+    .card__body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .card__use { margin: 0; color: var(--muted); font-size: 15px; }
+    .card__bg { font: 500 11px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin: 0; }
+    .card__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+    .rules { margin: 28px 0 0; padding: 20px 22px; background: var(--cream); border-radius: var(--radius); }
+    .rules ul { margin: 8px 0 0; padding-left: 20px; }
+    .rules li { margin: 4px 0; }
+
+    /* Photos */
+    .photos { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+    .photo { margin: 0; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--grey); display: flex; flex-direction: column; }
+    .photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--grey); }
+    .photo figcaption { background: var(--white); padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; }
+    .photo__name { font: 500 12px/1.4 var(--mono); letter-spacing: 0.04em; word-break: break-all; color: var(--black); }
+    .empty { padding: 32px 24px; border: 1px dashed var(--rule); border-radius: var(--radius); color: var(--muted); text-align: center; }
+
+    /* Copy blocks */
+    .blocks { display: grid; gap: 16px; }
+    .block { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--white); padding: 20px; }
+    @media (min-width: 720px) { .block { padding: 24px 28px; } }
+    .block__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .block__head .eyebrow { margin: 0; }
+    .block__text { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 17px; line-height: 1.55; }
+    .block--code .block__text { font: 500 clamp(28px, 7vw, 40px)/1.1 var(--mono); letter-spacing: 0.06em; color: var(--green); }
+    .block--todo { border-color: var(--purple); }
+    .todo { background: var(--grey); color: var(--black); font: 500 0.82em/1 var(--mono); letter-spacing: 0.04em; padding: 2px 6px; border-radius: 4px; }
+    .block__flag { margin: 12px 0 0; font: 500 11px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); }
+    .copied { background: var(--black) !important; border-color: var(--black) !important; color: var(--white) !important; }
+
+    footer { padding: 40px 0 56px; color: var(--muted); font-size: 15px; }
+    footer p { margin: 4px 0; }
+
+    @media (max-width: 479px) {
+      .card__actions .btn, .photo .btn { flex: 1 1 auto; }
+      .section__head .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img class="top__logo" src="/assets/partners/bayclub/logos/golfery-wordmark-descriptor-green.svg" alt="The Golfery, simulator lounge, Marin California" width="768" height="604">
+    <p class="eyebrow">Partner kit · Bay Club</p>
+    <h1>Everything you need to feature <em>The Golfery</em></h1>
+    <p class="lede">Logos, photos, and ready-to-paste offer copy for Bay Club's marketing team. Download what you need, and write to <a href="mailto:hello@golfery.com">hello@golfery.com</a> with anything we missed.</p>
+    <ul class="jump">
+      <li><a href="#logos">Logos</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#offer">Offer copy</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section id="logos">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">01 · Logos</p>
+          <h2>Logos</h2>
+          <p class="note">Each logo is shown on the kind of background it is made for. SVG for print and web, PNG with a transparent background at 2x for everything else.</p>
+        </div>
+        <a class="btn" href="/assets/partners/bayclub/golfery-logos-bayclub.zip" download="golfery-logos-bayclub.zip">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0 3.5-3.5M8 10 4.5 6.5M2.5 13.5h11"/></svg>
+          Download all <span class="btn__meta">ZIP</span>
+        </a>
+      </div>
+
+      <div class="grid" id="logo-grid"></div>
+
+      <div class="rules">
+        <h3>Using the logo</h3>
+        <ul>
+          <li>Use the green logo on light backgrounds and the Flagpole White logo on dark ones and on photos.</li>
+          <li>Leave clear space around the logo about the height of the G in "Golfery".</li>
+          <li>Please do not recolor, stretch, rotate, outline, or add shadows. Never retype the name in a script font.</li>
+          <li>The logo with "Simulator lounge / Marin California" underneath is the one to use where people may not know us yet.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">02 · Photos</p>
+          <h2>Photos</h2>
+          <p class="note">Tap download on any photo for the full-size file. Please credit <a href="https://www.instagram.com/golfery.marin/" target="_blank" rel="noopener">@golfery.marin</a> on social.</p>
+        </div>
+      </div>
+      <div class="photos" id="photo-grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="offer">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">03 · Offer copy</p>
+          <h2>Offer copy</h2>
+          <p class="note">Tap copy on any block to paste it into an email, post, or newsletter.</p>
+        </div>
+      </div>
+      <div class="blocks" id="copy-blocks" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>The Golfery · 647 Irwin Street, San Rafael, CA 94901</p>
+    <p><a href="https://www.golfery.com" target="_blank" rel="noopener">golfery.com</a> · <a href="mailto:hello@golfery.com">hello@golfery.com</a> · <a href="https://www.instagram.com/golfery.marin/" target="_blank" rel="noopener">@golfery.marin</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var BASE = "/assets/partners/bayclub/";
+  var DL_ICON = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0 3.5-3.5M8 10 4.5 6.5M2.5 13.5h11"/></svg>';
+
+  function el(tag, attrs, html) {
+    var n = document.createElement(tag);
+    for (var k in attrs || {}) n.setAttribute(k, attrs[k]);
+    if (html != null) n.innerHTML = html;
+    return n;
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function dlButton(href, name, label, meta, ghost) {
+    return '<a class="btn' + (ghost ? " btn--ghost" : "") + '" href="' + esc(href) + '" download="' + esc(name) + '">' +
+      DL_ICON + label + (meta ? ' <span class="btn__meta">' + esc(meta) + "</span>" : "") + "</a>";
+  }
+
+  /* 1. Logos */
+  var LOGOS = [
+    { id: "golfery-wordmark-descriptor-green", title: "Primary logo", use: "With descriptor. The default for Bay Club emails, posts, and print on light backgrounds.", bg: "chalk", bgName: "Light backgrounds", wide: true },
+    { id: "golfery-wordmark-descriptor-flagpole", title: "Primary logo, light version", use: "With descriptor. For dark backgrounds and photos.", bg: "green", bgName: "Dark backgrounds" },
+    { id: "golfery-wordmark-green", title: "Wordmark", use: "For tight spaces where the descriptor would be too small to read.", bg: "cream", bgName: "Light backgrounds" },
+    { id: "golfery-wordmark-flagpole", title: "Wordmark, light version", use: "For tight spaces on dark backgrounds and photos.", bg: "black", bgName: "Dark backgrounds" },
+    { id: "golfery-badge-green", title: "Badge", use: "Round mark for avatars, stickers, and square placements.", bg: "grey", bgName: "Light backgrounds", badge: true }
+  ];
+  var grid = document.getElementById("logo-grid");
+  LOGOS.forEach(function (l) {
+    var card = el("article", { class: "card" + (l.wide ? " card--wide" : "") });
+    card.innerHTML =
+      '<div class="stage stage--' + l.bg + (l.badge ? " stage--badge" : "") + '">' +
+        '<img src="' + BASE + "logos/" + l.id + '.svg" alt="' + esc(l.title) + '" loading="lazy">' +
+      "</div>" +
+      '<div class="card__body">' +
+        '<p class="card__bg">For ' + esc(l.bgName.toLowerCase()) + "</p>" +
+        "<h3>" + esc(l.title) + "</h3>" +
+        '<p class="card__use">' + esc(l.use) + "</p>" +
+        '<div class="card__actions">' +
+          dlButton(BASE + "logos/" + l.id + ".svg", l.id + ".svg", "SVG", null, false) +
+          dlButton(BASE + "logos/" + l.id + "@2x.png", l.id + "@2x.png", "PNG", "2x", true) +
+        "</div>" +
+      "</div>";
+    grid.appendChild(card);
+  });
+
+  /* 2. Photos, listed by scripts/bayclub-photos-manifest.mjs at deploy time */
+  var photoGrid = document.getElementById("photo-grid");
+  function emptyPhotos(msg) {
+    photoGrid.innerHTML = '<p class="empty" style="grid-column:1/-1">' + esc(msg) + "</p>";
+  }
+  function prettyName(file) {
+    return file.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").replace(/^\w/, function (c) { return c.toUpperCase(); });
+  }
+  function size(bytes) {
+    if (!bytes) return "";
+    return bytes >= 1048576 ? (bytes / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(bytes / 1024)) + " KB";
+  }
+  fetch(BASE + "photos/manifest.json", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      var photos = (data && data.photos) || [];
+      if (!photos.length) return emptyPhotos("Photos are on the way. Check back soon.");
+      photos.forEach(function (p) {
+        var src = BASE + "photos/" + encodeURIComponent(p.file);
+        var fig = el("figure", { class: "photo" });
+        fig.innerHTML =
+          '<img src="' + src + '" alt="' + esc(prettyName(p.file)) + '" loading="lazy" decoding="async">' +
+          "<figcaption>" +
+            '<span class="photo__name">' + esc(p.file) + "</span>" +
+            dlButton(src, p.file, "Download", size(p.bytes), false) +
+          "</figcaption>";
+        photoGrid.appendChild(fig);
+      });
+    })
+    .catch(function () { emptyPhotos("Photos are on the way. Check back soon."); });
+
+  /* 3. Offer copy, from copy.md. Each "## Heading" is one block. */
+  var ORDER = ["short description", "code", "how to redeem", "small print", "link"];
+  var blocksEl = document.getElementById("copy-blocks");
+  var TODO = /\bTO (FILL|CONFIRM)\b(\s*\([^)]*\))?/g;
+
+  function parseCopy(md) {
+    md = md.replace(/<!--[\s\S]*?-->/g, "").replace(/\r\n?/g, "\n");
+    var out = [], cur = null;
+    md.split("\n").forEach(function (line) {
+      var h = /^##\s+(.+?)\s*#*\s*$/.exec(line);
+      if (h) { cur = { title: h[1], lines: [] }; out.push(cur); }
+      else if (cur) cur.lines.push(line);
+    });
+    return out.map(function (b) {
+      return { title: b.title, text: b.lines.join("\n").replace(/^\n+|\s+$/g, "") };
+    }).filter(function (b) { return b.text; })
+      .sort(function (a, b) {
+        var ia = ORDER.indexOf(a.title.toLowerCase()), ib = ORDER.indexOf(b.title.toLowerCase());
+        return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+      });
+  }
+  function render(text) {
+    // Escape, highlight placeholders, then link bare URLs and domains.
+    var html = esc(text).replace(TODO, function (m) { return '<span class="todo">' + m + "</span>"; });
+    return html.replace(/\b((?:https?:\/\/)?(?:[a-z0-9-]+\.)+(?:com|io|org|net|club)(?:\/[^\s<]*[^\s<.,:;)])?)/gi, function (u) {
+      var href = /^https?:/i.test(u) ? u : "https://" + u;
+      return '<a href="' + href + '" target="_blank" rel="noopener">' + u + "</a>";
+    });
+  }
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (resolve, reject) {
+      var ta = el("textarea", { readonly: "", style: "position:fixed;top:-999px;opacity:0" });
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy") ? resolve() : reject(); } catch (e) { reject(e); }
+      document.body.removeChild(ta);
+    });
+  }
+
+  fetch(BASE + "copy.md", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (md) {
+      var blocks = parseCopy(md);
+      if (!blocks.length) throw new Error("empty");
+      blocks.forEach(function (b) {
+        var todo = new RegExp(TODO.source).test(b.text);
+        var isCode = b.title.toLowerCase() === "code";
+        var card = el("article", { class: "block" + (isCode ? " block--code" : "") + (todo ? " block--todo" : "") });
+        card.innerHTML =
+          '<div class="block__head">' +
+            '<p class="eyebrow">' + esc(b.title) + "</p>" +
+            '<button class="btn btn--ghost" type="button"' + (todo ? " disabled" : "") + ">" +
+              (todo ? "Final text coming" : "Copy") +
+            "</button>" +
+          "</div>" +
+          '<p class="block__text">' + render(b.text) + "</p>" +
+          (todo ? '<p class="block__flag">Waiting on final details from The Golfery</p>' : "");
+        var btn = card.querySelector("button");
+        if (!todo) {
+          btn.setAttribute("aria-label", "Copy " + b.title.toLowerCase());
+          btn.addEventListener("click", function () {
+            copyText(b.text).then(function () {
+              btn.textContent = "Copied";
+              btn.classList.add("copied");
+              setTimeout(function () { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1800);
+            }, function () { btn.textContent = "Select and copy"; });
+          });
+        }
+        blocksEl.appendChild(card);
+      });
+    })
+    .catch(function () {
+      blocksEl.innerHTML = '<p class="empty">Offer copy is on the way. Write to <a href="mailto:hello@golfery.com">hello@golfery.com</a> if you need it sooner.</p>';
+    });
+})();
+</script>
+</body>
+</html>
